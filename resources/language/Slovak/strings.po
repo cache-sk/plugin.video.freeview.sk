@@ -37,5 +37,6 @@ msgstr "Plugin slúži na získanie streamov voľne dostupných vysielaní telev
 "Znamená to, že ho môžte skopírovať a rozšíriť o streamy, ktoré máte sami k dispozícii.\n"
 "Ak ho chcete používať priamo z pluginu, treba PVR IPTV Simple Client nastaviť na vzdialenú cestu (internet) a zadať nasledovnú adresu:\n"
 "special://home/addons/plugin.video.freeview.sk/playlist.m3u\n\n"
+"- playlist je kompatibilný s EPG z https://phazebox.com"
 "- v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho v nastaveniach\n"
 "- pre RTVS sú k dispozícii aj DASH streamy, ktoré majú vyššiu kvalitu (bitrate), zapnete ich v nastaveniach\n"

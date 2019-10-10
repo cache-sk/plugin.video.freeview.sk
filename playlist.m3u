@@ -1,19 +1,19 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/24/Jednotka_logo.jpg",Jednotka
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/24/Jednotka_logo.jpg" tvg-name="Jednotka",Jednotka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
-#EXTINF:-1 tvg-id="2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b5/Logo_of_Dvojka_%282012-%29.png",Dvojka
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b5/Logo_of_Dvojka_%282012-%29.png" tvg-name="Dvojka",Dvojka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
-#EXTINF:-1 tvg-id="3" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/45/Rozhlas_a_telev%C3%ADzia_Slovenska.jpg",RTVS Online
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/45/Rozhlas_a_telev%C3%ADzia_Slovenska.jpg" tvg-name="RTVS Online",RTVS Online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
-#EXTINF:-1 tvg-id="3" tvg-logo="https://img.joj.sk/rx/logojoj.png",JOJ
+#EXTINF:0 tvg-id="" tvg-logo="https://img.joj.sk/rx/logojoj.png" tvg-name="JOJ",JOJ
 plugin://plugin.video.freeview.sk/?provider=joj&channel=joj
-#EXTINF:-1 tvg-id="4" tvg-logo="https://img.joj.sk/rx/logoplus.png",Plus
+#EXTINF:0 tvg-id="" tvg-logo="https://img.joj.sk/rx/logoplus.png" tvg-name="JOJ Plus",JOJ Plus
 plugin://plugin.video.freeview.sk/?provider=joj&channel=plus
-#EXTINF:-1 tvg-id="5" tvg-logo="https://img.joj.sk/rx/logowau.png",Wau
+#EXTINF:0 tvg-id="" tvg-logo="https://img.joj.sk/rx/logowau.png" tvg-name="WAU",WAU
 plugin://plugin.video.freeview.sk/?provider=joj&channel=wau
-#EXTINF:-1 tvg-id="3" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/28/Markiza_logo.png",Mark�za
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/28/Markiza_logo.png" tvg-name="Markíza",Markíza
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
-#EXTINF:-1 tvg-id="4" tvg-logo="https://static.markiza.sk/media/a501/image/file/2/0131/UM9R.doma_hd_jpg.jpg",Doma
+#EXTINF:0 tvg-id="" tvg-logo="https://static.markiza.sk/media/a501/image/file/2/0131/UM9R.doma_hd_jpg.jpg" tvg-name="Doma",Doma
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
-#EXTINF:-1 tvg-id="5" tvg-logo="https://static.markiza.sk/media/a501/image/file/2/0008/AEcM.dajto_button.jpg",Dajto
+#EXTINF:0 tvg-id="" tvg-logo="https://static.markiza.sk/media/a501/image/file/2/0008/AEcM.dajto_button.jpg" tvg-name="Dajto",Dajto
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto

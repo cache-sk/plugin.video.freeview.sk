@@ -20,6 +20,8 @@ Ak ho chcete používať priamo z pluginu, treba PVR IPTV Simple Client nastavi�
 
 special://home/addons/plugin.video.freeview.sk/playlist.m3u
 
+- playlist je kompatibilný s EPG z https://phazebox.com
+
 - v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho v nastaveniach
 
 - pre RTVS sú k dispozícii aj DASH streamy, ktoré majú vyššiu kvalitu (bitrate), zapnete ich v nastaveniach
