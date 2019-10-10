@@ -37,9 +37,7 @@ def router(paramstring):
         else:
             raise #TODO
     else:
-        #xbmcplugin.setPluginCategory(_handle, _addon.getLocalizedString(30000))
-        #xbmcplugin.addDirectoryItem(_handle, get_url(action='new'), xbmcgui.ListItem(label=_addon.getLocalizedString(30001)), True)
-        #xbmcplugin.addDirectoryItem(_handle, get_url(action='full'), xbmcgui.ListItem(label=_addon.getLocalizedString(30002)), True)
+        xbmcgui.Dialog().textviewer(_addon.getAddonInfo('name'), _addon.getLocalizedString(30999))
         xbmcplugin.endOfDirectory(_handle)
 
 if __name__ == '__main__':
