@@ -1,0 +1,19 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="1" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/24/Jednotka_logo.jpg",Jednotka
+plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
+#EXTINF:-1 tvg-id="2" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b5/Logo_of_Dvojka_%282012-%29.png",Dvojka
+plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
+#EXTINF:-1 tvg-id="3" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/45/Rozhlas_a_telev%C3%ADzia_Slovenska.jpg",RTVS Online
+plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
+#EXTINF:-1 tvg-id="3" tvg-logo="https://img.joj.sk/rx/logojoj.png",JOJ
+plugin://plugin.video.freeview.sk/?provider=joj&channel=joj
+#EXTINF:-1 tvg-id="4" tvg-logo="https://img.joj.sk/rx/logoplus.png",Plus
+plugin://plugin.video.freeview.sk/?provider=joj&channel=plus
+#EXTINF:-1 tvg-id="5" tvg-logo="https://img.joj.sk/rx/logowau.png",Wau
+plugin://plugin.video.freeview.sk/?provider=joj&channel=wau
+#EXTINF:-1 tvg-id="3" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/28/Markiza_logo.png",Markíza
+plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
+#EXTINF:-1 tvg-id="4" tvg-logo="https://static.markiza.sk/media/a501/image/file/2/0131/UM9R.doma_hd_jpg.jpg",Doma
+plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
+#EXTINF:-1 tvg-id="5" tvg-logo="https://static.markiza.sk/media/a501/image/file/2/0008/AEcM.dajto_button.jpg",Dajto
+plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto

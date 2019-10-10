@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: sk\n"
+
+msgctxt "#30100"
+msgid "Markíza"
+msgstr "Markíza"
+
+msgctxt "#30101"
+msgid "Prihlasovacie konto do markízy"
+msgstr "Prihlasovacie konto do markízy"
+
+msgctxt "#30102"
+msgid "Email"
+msgstr "Email"
+
+msgctxt "#30103"
+msgid "Heslo"
+msgstr "Heslo"
+
+msgctxt "#30110"
+msgid "RTVS"
+msgstr "RTVS"
+
+msgctxt "#30111"
+msgid "Preferovať DASH streams (mpd)"
+msgstr "Preferovať DASH streams (mpd)"
