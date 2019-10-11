@@ -33,3 +33,5 @@ plugin://plugin.video.freeview.sk/?provider=ocko&channel=ocko
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=expres
 #EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b5/%C3%93%C4%8Dko_Star_logo.png" tvg-name="Óčko Star",Óčko Star
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=star
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7b/Retro_Music_TV_logo.png" tvg-name="Retro Music",Retro Music
+plugin://plugin.video.freeview.sk/?provider=retro&channel=retro
