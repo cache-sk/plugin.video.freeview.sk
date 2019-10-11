@@ -13,6 +13,8 @@ import xbmcplugin
 from urlparse import parse_qsl
 from importlib import import_module
 
+sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers'))
+
 _url = sys.argv[0]
 _handle = int(sys.argv[1])
 _addon = xbmcaddon.Addon()
