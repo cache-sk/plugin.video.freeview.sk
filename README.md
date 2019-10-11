@@ -16,9 +16,13 @@ Playlist je v statický, meniť sa môže len aktualizáciou celého pluginu, al
 
 Znamená to, že ho môžte skopírovať a rozšíriť o streamy, ktoré máte sami k dispozícii.
 
-Ak ho chcete používať priamo z pluginu, treba PVR IPTV Simple Client nastaviť na vzdialenú cestu (internet) a zadať nasledovnú adresu:
+Môžete ho skúsiť používať priamo z pluginu, problém ale je, že nie všade to funguje.
+
+Treba PVR IPTV Simple Client nastaviť na vzdialenú cestu (internet) a zadať nasledovnú adresu:
 
 special://home/addons/plugin.video.freeview.sk/playlist.m3u
+
+Ak to nejde (PVR IPTV Simple Client sa sekne a nejde načítať), tak si playlist z pluginu nikam nahrajte a nastavte ako lokálny súbor
 
 - playlist je kompatibilný s EPG z https://phazebox.com
 
