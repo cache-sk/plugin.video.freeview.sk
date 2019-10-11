@@ -17,3 +17,5 @@ plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
 #EXTINF:0 tvg-id="" tvg-logo="https://static.markiza.sk/media/a501/image/file/2/0008/AEcM.dajto_button.jpg" tvg-name="Dajto",Dajto
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/ba/TA3_logo.png" tvg-name="TA3",TA3
+plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3

@@ -50,9 +50,6 @@ def play(_handle, channel, email, password):
     response = session.post(BASE, data=params, headers=headers, allow_redirects=False)
 
     if response.status_code != 302:
-        print(response)
-        print(response.status_code)
-        #print(response.text)
         raise #TODO
 
     #response = session.get(AFTER, headers=headers)
@@ -61,22 +58,15 @@ def play(_handle, channel, email, password):
     html = BeautifulSoup(response.text, features="html.parser")
     items = html.find_all('iframe',{'allowfullscreen':''},True)
     iframe1 = items[0]['src']
-    print(iframe1)
 
     headers.update({'Referer':CHANNELS[channel]})
     response = session.get(iframe1, headers=headers)
     html = BeautifulSoup(response.text, features="html.parser")
     items = html.find_all('iframe',{},True)
     iframe2 = items[0]['src']
-    print(iframe2)
 
     headers.update({'Referer':iframe1})
     response = session.get(iframe2, headers=headers)
-    print(response.text)
-    print(response.request)
-    print(response.request.headers)
-    print(response.request.url)
-    print(response.request.body)
     matches = re.search("\"hls\": \"(.*)\"", response.text)
     hls = matches.group(1)
     

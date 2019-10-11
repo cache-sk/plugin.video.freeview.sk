@@ -15,6 +15,7 @@ from urlparse import parse_qsl
 import rtvs
 import joj
 import markiza
+import ta3
 
 _url = sys.argv[0]
 _handle = int(sys.argv[1])
@@ -34,6 +35,8 @@ def router(paramstring):
             email = xbmcplugin.getSetting(_handle, 'mrkzemail')
             password = xbmcplugin.getSetting(_handle, 'mrkzpassword')
             markiza.play(_handle, params['channel'], email, password)
+        elif provider == 'ta3':
+            ta3.play(_handle, params['channel'])
         else:
             raise #TODO
     else:
