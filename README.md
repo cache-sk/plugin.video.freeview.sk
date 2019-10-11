@@ -22,7 +22,7 @@ Treba PVR IPTV Simple Client nastaviť na vzdialenú cestu (internet) a zadať n
 
 special://home/addons/plugin.video.freeview.sk/playlist.m3u
 
-Ak to nejde (PVR IPTV Simple Client sa sekne a nejde načítať), tak si playlist z pluginu nikam nahrajte a nastavte ako lokálny súbor
+Ak to nejde (PVR IPTV Simple Client sa sekne a nejde načítať), tak si playlist z pluginu niekam nahrajte a nastavte ako lokálny súbor
 
 - playlist je kompatibilný s EPG z https://phazebox.com
 
