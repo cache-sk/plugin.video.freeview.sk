@@ -8,4 +8,7 @@
     <category label="30110">
         <setting label="30111" type="bool" id="rtvsmpd" default="false"/>
     </category>
+    <category label="30120">
+        <setting label="30121" type="bool" id="ockompd" default="false"/>
+    </category>
 </settings>

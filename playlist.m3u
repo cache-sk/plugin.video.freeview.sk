@@ -19,3 +19,17 @@ plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
 #EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/ba/TA3_logo.png" tvg-name="TA3",TA3
 plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/2f/TV_Nova_logo_2017.png" tvg-name="Nova",Nova
+plugin://plugin.video.freeview.sk/?provider=nova&channel=nova
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/34/Nova_2_logo-600x207.png" tvg-name="Nova 2",Nova 2
+plugin://plugin.video.freeview.sk/?provider=nova&channel=nova2
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/cd/Nova_Cinema_logo.png" tvg-name="Nova Cinema",Nova Cinema
+plugin://plugin.video.freeview.sk/?provider=nova&channel=cinema
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7f/Nova_Gold_logo.png" tvg-name="Nova Gold",Nova Gold
+plugin://plugin.video.freeview.sk/?provider=nova&channel=gold
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/20/%C3%93%C4%8Dko_logo_2012.png" tvg-name="Óčko",Óčko
+plugin://plugin.video.freeview.sk/?provider=ocko&channel=ocko
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/2b/%C3%93%C4%8Dko_Expres_logo.png" tvg-name="Óčko Expres",Óčko Expres
+plugin://plugin.video.freeview.sk/?provider=ocko&channel=expres
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b5/%C3%93%C4%8Dko_Star_logo.png" tvg-name="Óčko Star",Óčko Star
+plugin://plugin.video.freeview.sk/?provider=ocko&channel=star

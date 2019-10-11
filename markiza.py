@@ -27,9 +27,14 @@ BASE = "https://moja.markiza.sk/"
 AFTER = "https://moja.markiza.sk/profil"
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 
-def play(_handle, channel, email, password):
+def play(_handle, _addon, params):
+    channel = params['channel']
     if not channel in CHANNELS:
         raise #TODO
+
+    email = xbmcplugin.getSetting(_handle, 'mrkzemail')
+    password = xbmcplugin.getSetting(_handle, 'mrkzpassword')
+
     session = requests.Session()
     headers = {}
     headers.update(HEADERS)

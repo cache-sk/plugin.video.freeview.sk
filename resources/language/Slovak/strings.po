@@ -27,6 +27,14 @@ msgctxt "#30111"
 msgid "Preferovať DASH streams (mpd)"
 msgstr "Preferovať DASH streams (mpd)"
 
+msgctxt "#30120"
+msgid "Óčko"
+msgstr "Óčko"
+
+msgctxt "#30121"
+msgid "Preferovať DASH streams (mpd)"
+msgstr "Preferovať DASH streams (mpd)"
+
 msgctxt "#30999"
 msgid "disclaimer"
 msgstr "Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na slovensku.\n"

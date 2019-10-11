@@ -20,9 +20,13 @@ PARAMS = {'ad':1,'b':'chrome','p':'win','v':'77','f':0,'d':1}
 CHANNEL_PARAM = 'c'
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 
-def play(_handle, channel, prefer_mpd):
+def play(_handle, _addon, params):
+    channel = params['channel']
     if not channel in CHANNELS:
         raise #TODO
+    
+    prefer_mpd = xbmcplugin.getSetting(_handle, 'rtvsmpd') == 'true'
+
     session = requests.Session()
     session.headers.update(HEADERS)
     session.get(API_INIT)
