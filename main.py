@@ -9,6 +9,7 @@ import xbmc
 import xbmcaddon
 import xbmcgui
 import xbmcplugin
+import xbmcvfs
 
 from urlparse import parse_qsl
 from importlib import import_module
@@ -27,6 +28,13 @@ def router(paramstring):
         module.play(_handle, _addon, params)
     else:
         xbmcgui.Dialog().textviewer(_addon.getAddonInfo('name'), _addon.getLocalizedString(30999))
+        destination = xbmcgui.Dialog().browseSingle(3, _addon.getAddonInfo('name'), '')
+        if destination is not None:
+            try:
+                xbmcvfs.copy('special://home/addons/plugin.video.freeview.sk/playlist.m3u', destination + 'playlist.m3u')
+                xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30900))
+            except Exception as e:
+                xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30901), str(e))
         xbmcplugin.endOfDirectory(_handle)
 
 if __name__ == '__main__':

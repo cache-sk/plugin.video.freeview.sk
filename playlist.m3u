@@ -35,3 +35,5 @@ plugin://plugin.video.freeview.sk/?provider=ocko&channel=expres
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=star
 #EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7b/Retro_Music_TV_logo.png" tvg-name="Retro Music",Retro Music
 plugin://plugin.video.freeview.sk/?provider=retro&channel=retro
+#EXTINF:0 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b2/%C4%8CT24_logo.png" tvg-name="ČT24",ČT24
+#plugin://plugin.video.freeview.sk/?provider=ct&channel=ct24
