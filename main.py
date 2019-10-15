@@ -27,6 +27,7 @@ def router(paramstring):
         module = import_module(provider)
         module.play(_handle, _addon, params)
     else:
+        print("picitam!")
         xbmcplugin.endOfDirectory(_handle)
         xbmcgui.Dialog().textviewer(_addon.getAddonInfo('name'), _addon.getLocalizedString(30999))
         destination = xbmcgui.Dialog().browseSingle(3, _addon.getAddonInfo('name'), '')
