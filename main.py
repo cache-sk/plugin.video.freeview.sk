@@ -35,7 +35,7 @@ def router(paramstring):
                 if xbmcvfs.exists(destination + 'playlist.m3u'):
                     if not xbmcgui.Dialog().yesno(_addon.getAddonInfo('name'), _addon.getLocalizedString(30902)):
                         return
-                xbmcvfs.copy('special://home/addons/plugin.video.freeview.sk/playlist.m3u', destination + 'playlist.m3u')
+                xbmcvfs.copy('special://home/addons/plugin.video.freeview.sk/resources/playlist.m3u', destination + 'playlist.m3u')
                 xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30900))
             except Exception as e:
                 xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30901), str(e))
