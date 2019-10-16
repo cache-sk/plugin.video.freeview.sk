@@ -11,7 +11,8 @@ from urllib import urlencode
 CHANNELS = {
     'jednotka':1,
     'dvojka':2,
-    'online':4
+    'online':4,
+    'nrsr':5
 }
 
 ALTERNATIVE = {

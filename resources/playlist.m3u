@@ -5,6 +5,8 @@ plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
 #EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Online",RTVS Online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
+#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nrsr.png" tvg-name="NRSR Online",NRSR Online
+plugin://plugin.video.freeview.sk/?provider=rtvs&channel=nrsr
 #EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/joj.png" tvg-name="JOJ",JOJ
 plugin://plugin.video.freeview.sk/?provider=joj&channel=joj
 #EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/plus.png" tvg-name="JOJ Plus",JOJ Plus
