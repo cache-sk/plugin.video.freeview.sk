@@ -12,8 +12,11 @@ from urllib import urlencode
 CHANNELS = {
     'joj':{'src':'https://nn.geo.joj.sk/live/joj-index.m3u8','referer':'https://live.joj.sk/'},
     'plus':{'src':'https://nn.geo.joj.sk/live/jojplus-index.m3u8', 'referer':'https://plus.joj.sk/live'},
-    'wau':{'src':'https://nn.geo.joj.sk/live/wau-index.m3u8', 'referer':'https://wau.joj.sk/live'}
+    'wau':{'src':'https://nn.geo.joj.sk/live/wau-index.m3u8', 'referer':'https://wau.joj.sk/live'},
+    'rik':{'src':'https://nn.geo.joj.sk/live/rik-index.m3u8', 'referer':'https://rik.joj.sk/live'}, #http://nn2.joj.sk/hls/rik-540.m3u8
+    'family':{'src':'https://nn.geo.joj.sk/live/family-index.m3u8', 'referer':'http://jojfamily.blesk.cz/live'}
 }
+#alternative - https://ocko-live.ssl.cdn.cra.cz/channels/joj/playlist/cze/live_hd.m3u8
 
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 

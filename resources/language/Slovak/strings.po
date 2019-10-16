@@ -27,6 +27,10 @@ msgctxt "#30111"
 msgid "Preferovať DASH streams (mpd)"
 msgstr "Preferovať DASH streams (mpd)"
 
+msgctxt "#30112"
+msgid "Použiť alternatívne streamy"
+msgstr "Použiť alternatívne streamy"
+
 msgctxt "#30120"
 msgid "Óčko"
 msgstr "Óčko"

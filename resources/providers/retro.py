@@ -12,6 +12,7 @@ import m3u8
 
 CHANNELS = {
     'retro':{'path':'http://stream.mediawork.cz/retrotv/smil:retrotv2.smil/','playlist':'playlist.m3u8'}
+    #'retro':{'path':'http://stream.mediawork.cz/retrotv/retrotvHQ1/','playlist':'playlist.m3u8'} 
 }
 
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}

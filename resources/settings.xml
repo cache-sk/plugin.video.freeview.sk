@@ -6,7 +6,8 @@
         <setting label="30103" type="text" option="hidden" id="mrkzpassword" default="heslo123"/>
     </category>
     <category label="30110">
-        <setting label="30111" type="bool" id="rtvsmpd" default="false"/>
+        <setting label="30111" type="bool" id="rtvsmpd" default="false" enable="!eq(1,true)"/>
+        <setting label="30112" type="bool" id="rtvsalt" default="false"/>
     </category>
     <category label="30120">
         <setting label="30121" type="bool" id="ockompd" default="false"/>
