@@ -11,4 +11,7 @@
     <category label="30120">
         <setting label="30121" type="bool" id="ockompd" default="false"/>
     </category>
+    <category label="30130">
+        <setting label="30131" type="bool" id="retroparse" default="true"/>
+    </category>
 </settings>

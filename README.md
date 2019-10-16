@@ -8,7 +8,7 @@ Plugin slúži na získanie streamov voľne dostupných vysielaní televízií n
 
 Je pravdepodobné, že bude fungovať len na slovensku, z dôvodu geo obmedzení.
 
-Všetko sú to stanice, ktoré sa dajú pozerať na slovensku zdarma priamo cez prehliadač.
+Všetko sú to stanice, ktoré sa dajú pozerať na slovensku zdarma priamo cez prehliadač, prípadne nemajú priamo na streame zapnutú geoblokáciu a teda fungujú aj zo slovenska.
 
 K prehrávaniu je potrebný nainštalovaný a povolený InputStream Adaptive.
 
@@ -16,16 +16,9 @@ Playlist je v statický, meniť sa môže len aktualizáciou celého pluginu, al
 
 Znamená to, že ho môžte skopírovať a rozšíriť o streamy, ktoré máte sami k dispozícii.
 
-Môžete ho skúsiť používať priamo z pluginu, problém ale je, že nie všade to funguje.
+Po "spustení" tohto video doplnku sa zobrazí informačná správa a potom urcčíte, kam uložiť playlist pre PVR IPTV Simple Client.
 
-Treba PVR IPTV Simple Client nastaviť na vzdialenú cestu (internet) a zadať nasledovnú adresu:
+- playlist je kompatibilný s EPG z https://phazebox.com, plugin má však aj vlastné logá staníc (t.j. preferujte pre logá playlist pred epg)
 
-special://home/addons/plugin.video.freeview.sk/playlist.m3u
+- v nastaveniach sú rôzne možnosti, napríklad v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho tam
 
-Ak to nejde (PVR IPTV Simple Client sa sekne a nejde načítať), tak si playlist z pluginu niekam nahrajte a nastavte ako lokálny súbor
-
-- playlist je kompatibilný s EPG z https://phazebox.com
-
-- v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho v nastaveniach
-
-- pre RTVS sú k dispozícii aj DASH streamy, ktoré majú vyššiu kvalitu (bitrate), zapnete ich v nastaveniach
