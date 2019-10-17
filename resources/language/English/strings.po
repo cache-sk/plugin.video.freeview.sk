@@ -88,12 +88,11 @@ msgid "Vo vybranom adresári už existuje playlist.m3u - prepísať?"
 msgstr "Vo vybranom adresári už existuje playlist.m3u - prepísať?"
 
 msgctxt "#30998"
-msgid "warn"
+msgid "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi."
 msgstr "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi."
 
 msgctxt "#30999"
-msgid "disclaimer"
-msgstr "Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na Slovensku.\n\n"
+msgid "Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na Slovensku.\n\n"
 "Všetko sú to stanice, ktoré sa dajú pozerať na Slovensku zdarma priamo cez prehliadač, prípadne NEmajú priamo na streame zapnutú geoblokáciu a teda fungujú aj zo Slovenska, každopádne sú to všetko oficiálne retransmisie.\n"
 "K prehrávaniu je potrebný nainštalovaný a povolený InputStream Adaptive a nastavený PVR IPTV Simple Client.\n"
 "Playlist je v statický, meniť sa môže len aktualizáciou celého pluginu, ale odvoláva sa nazad na plugin, takže nefunguje samostatne ani mimo Kodi.\n"
@@ -101,4 +100,5 @@ msgstr "Plugin slúži na získanie streamov voľne dostupných vysielaní telev
 "V menu si môžete vybrat extrakciu playlistu, alebo automatické nastavenie PVR IPTV Simple Client na playlist priamo v plugine.\n\n"
 "- playlist je kompatibilný s EPG z https://phazebox.com, plugin má však aj vlastné logá staníc (t.j. preferujte pre logá playlist pred epg)\n"
 "- v nastaveniach sú rôzne možnosti, napríklad v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho tam"
+msgstr ""
 
