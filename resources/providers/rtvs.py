@@ -17,7 +17,7 @@ CHANNELS = {
 
 ALTERNATIVE = {
     'jednotka':'https://ocko-live.ssl.cdn.cra.cz/channels/stv1/playlist/cze/live_hd.m3u8',
-    'dvojka':'https://ocko-live.ssl.cdn.cra.cz/channels/stv1/playlist/cze/live_hd.m3u8'
+    'dvojka':'https://ocko-live.ssl.cdn.cra.cz/channels/stv2/playlist/cze/live_hd.m3u8'
 }
 
 API_INIT = "https://www.rtvs.sk/televizia/tv"
