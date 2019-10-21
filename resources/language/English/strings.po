@@ -88,8 +88,8 @@ msgid "Vo vybranom adresári už existuje playlist.m3u - prepísať?"
 msgstr "Vo vybranom adresári už existuje playlist.m3u - prepísať?"
 
 msgctxt "#30998"
-msgid "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi."
-msgstr "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi."
+msgid "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi. Pokračovať?"
+msgstr "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi. Pokračovať?"
 
 msgctxt "#30999"
 msgid "Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na Slovensku.\n\n"

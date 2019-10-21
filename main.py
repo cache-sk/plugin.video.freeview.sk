@@ -51,7 +51,9 @@ def setpisc():
         xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30010))
         xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
         return
-    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30998))
+    if not xbmcgui.Dialog().yesno(_addon.getAddonInfo('name'), _addon.getLocalizedString(30998)):
+        xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
+        return
     pisc.setSetting('m3uPathType','0')
     pisc.setSetting('m3uPath',xbmc.translatePath(PLAYLIST))
     pisc.setSetting('startNum','1')
