@@ -23,9 +23,21 @@ msgctxt "#30005"
 msgid "Nastavenia PVR IPTV Simple Client"
 msgstr "Nastavenia PVR IPTV Simple Client"
 
+msgctxt "#30006"
+msgid "Nastaviť phazebox.com epg do PVR IPTV Simple Client"
+msgstr "Nastaviť phazebox.com epg do PVR IPTV Simple Client"
+
 msgctxt "#30010"
 msgid "Nemáš nainštalovaný PVR IPTV Simple Client"
 msgstr "Nemáš nainštalovaný PVR IPTV Simple Client"
+
+msgctxt "#30011"
+msgid "Meno používateľa phazebox.com"
+msgstr "Meno používateľa phazebox.com"
+
+msgctxt "#30012"
+msgid "Email používateľa phazebox.com"
+msgstr "Email používateľa phazebox.com"
 
 msgctxt "#30100"
 msgid "Markíza"
@@ -42,6 +54,10 @@ msgstr "Email"
 msgctxt "#30103"
 msgid "Heslo"
 msgstr "Heslo"
+
+msgctxt "#30105"
+msgid "Sorry, nepodarilo sa mi získať: "
+msgstr "Sorry, nepodarilo sa mi získať: "
 
 msgctxt "#30110"
 msgid "RTVS"

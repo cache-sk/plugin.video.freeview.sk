@@ -27,6 +27,11 @@ BASE = "https://moja.markiza.sk/"
 AFTER = "https://moja.markiza.sk/profil"
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 
+def brexit(_addon, word):
+    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30105) + word)
+    xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
+    return False
+
 def play(_handle, _addon, params):
     channel = params['channel']
     if not channel in CHANNELS:
@@ -42,33 +47,48 @@ def play(_handle, _addon, params):
     html = BeautifulSoup(response.text, features="html.parser")
     
     items = html.find_all('input',{'type':'hidden','name':'_token_'},True)
-    _token_ = items[0]['value']
+    if len(items) > 0:
+        _token_ = items[0]['value']
+    else:
+        return brexit(_addon, 'token')
 
     items = html.find_all('input',{'type':'hidden','name':'_do'},True)
-    _do = items[0]['value']
+    if len(items) > 0:
+        _do = items[0]['value']
+    else:
+        return brexit(_addon, 'do')
 
     items = html.find_all('input',{'type':'submit','name':'login','class':'btn'},True)
-    login = items[0]['value']
+    if len(items) > 0:
+        login = items[0]['value']
+    else:
+        return brexit(_addon, 'login')
 
     headers.update({'Referer':BASE})
     params = {'email':email, 'password':password, '_token_':_token_, '_do':_do, 'login':login}
     response = session.post(BASE, data=params, headers=headers, allow_redirects=False)
 
     if response.status_code != 302:
-        raise #TODO
+        return brexit(_addon, 'forward')
 
     #response = session.get(AFTER, headers=headers)
     #headers.update({'Referer':AFTER})
     response = session.get(CHANNELS[channel], headers=headers)
     html = BeautifulSoup(response.text, features="html.parser")
     items = html.find_all('iframe',{'allowfullscreen':''},True)
-    iframe1 = items[0]['src']
+    if len(items) > 0:
+        iframe1 = items[0]['src']
+    else:
+        return brexit(_addon, 'iframe1')
 
     headers.update({'Referer':CHANNELS[channel]})
     response = session.get(iframe1, headers=headers)
     html = BeautifulSoup(response.text, features="html.parser")
     items = html.find_all('iframe',{},True)
-    iframe2 = items[0]['src']
+    if len(items) > 0:
+        iframe2 = items[0]['src']
+    else:
+        return brexit(_addon, 'iframe2')
 
     headers.update({'Referer':iframe1})
     response = session.get(iframe2, headers=headers)

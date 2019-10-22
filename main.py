@@ -62,6 +62,28 @@ def setpisc():
     pisc.setSetting('logoFromEpg','1')
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
+def setpiscepg():
+    try:
+        pisc = xbmcaddon.Addon('pvr.iptvsimple')
+    except:
+        xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30010))
+        xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
+        return
+
+    user = xbmcgui.Dialog().input(_addon.getLocalizedString(30011), '', xbmcgui.INPUT_ALPHANUM)
+    email = xbmcgui.Dialog().input(_addon.getLocalizedString(30012), '', xbmcgui.INPUT_ALPHANUM)
+
+    if not xbmcgui.Dialog().yesno(_addon.getAddonInfo('name'), _addon.getLocalizedString(30998)):
+        xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
+        return
+
+    pisc.setSetting('epgCache','true')
+    pisc.setSetting('epgPathType','1')
+    pisc.setSetting('epgTimeShift','0')
+    pisc.setSetting('epgTSOverride','false')
+    pisc.setSetting('epgUrl','https://phazebox.com/epg.php?user=' + user + '&email=' + email)
+    xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
+
 def settings():
     _addon.openSettings()
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
@@ -80,6 +102,7 @@ def menu():
     xbmcplugin.addDirectoryItem(_handle, get_url(action='info'), xbmcgui.ListItem(label=_addon.getLocalizedString(30001)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='extract'), xbmcgui.ListItem(label=_addon.getLocalizedString(30002)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='setpisc'), xbmcgui.ListItem(label=_addon.getLocalizedString(30003)), False)
+    xbmcplugin.addDirectoryItem(_handle, get_url(action='setpiscepg'), xbmcgui.ListItem(label=_addon.getLocalizedString(30006)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='settings'), xbmcgui.ListItem(label=_addon.getLocalizedString(30004)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='piscsettings'), xbmcgui.ListItem(label=_addon.getLocalizedString(30005)), False)
     xbmcplugin.endOfDirectory(_handle)
