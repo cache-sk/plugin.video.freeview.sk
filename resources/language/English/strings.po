@@ -3,6 +3,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sk\n"
 
+msgctxt "#30000"
+msgid "Zoznam staníc v playliste"
+msgstr "Zoznam staníc v playliste"
+
 msgctxt "#30001"
 msgid "Info"
 msgstr "Info"
@@ -27,6 +31,10 @@ msgctxt "#30006"
 msgid "Nastaviť phazebox.com epg do PVR IPTV Simple Client"
 msgstr "Nastaviť phazebox.com epg do PVR IPTV Simple Client"
 
+msgctxt "#30007"
+msgid "Nastaviť generované epg do PVR IPTV Simple Client"
+msgstr "Nastaviť generované epg do PVR IPTV Simple Client"
+
 msgctxt "#30010"
 msgid "Nemáš nainštalovaný PVR IPTV Simple Client"
 msgstr "Nemáš nainštalovaný PVR IPTV Simple Client"
@@ -38,6 +46,18 @@ msgstr "Meno používateľa phazebox.com"
 msgctxt "#30012"
 msgid "Email používateľa phazebox.com"
 msgstr "Email používateľa phazebox.com"
+
+msgctxt "#30090"
+msgid "Všeobecné"
+msgstr "Všeobecné"
+
+msgctxt "#30091"
+msgid "Generovanie epg zo Skylink-u"
+msgstr "Generovanie epg zo Skylink-u"
+
+msgctxt "#30092"
+msgid "EPG zo Skylink-u vygenerované"
+msgstr "EPG zo Skylink-u vygenerované"
 
 msgctxt "#30100"
 msgid "Markíza"
@@ -115,6 +135,7 @@ msgid "Plugin slúži na získanie streamov voľne dostupných vysielaní telev�
 "Znamená to, že ho môžte skopírovať a rozšíriť o streamy, ktoré máte sami k dispozícii.\n"
 "V menu si môžete vybrat extrakciu playlistu, alebo automatické nastavenie PVR IPTV Simple Client na playlist priamo v plugine.\n\n"
 "- playlist je kompatibilný s EPG z https://phazebox.com, plugin má však aj vlastné logá staníc (t.j. preferujte pre logá playlist pred epg)\n"
+"- plugin vie aj generovať epg zo Skylink služby, zapnutie a vypnutie je v nastaveniach\n"
 "- v nastaveniach sú rôzne možnosti, napríklad v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho tam"
 msgstr ""
 

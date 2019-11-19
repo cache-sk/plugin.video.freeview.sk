@@ -20,5 +20,7 @@ Po "spustení" tohto video doplnku sa zobrazí informačná správa a potom urc�
 
 - playlist je kompatibilný s EPG z https://phazebox.com, plugin má však aj vlastné logá staníc (t.j. preferujte pre logá playlist pred epg)
 
+- plugin vie aj generovať epg zo Skylink služby, zapnutie a vypnutie je v nastaveniach
+
 - v nastaveniach sú rôzne možnosti, napríklad v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho tam
 

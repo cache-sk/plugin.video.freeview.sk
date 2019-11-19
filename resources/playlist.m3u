@@ -1,55 +1,56 @@
 #EXTM3U
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jednotka.png" tvg-name="Jednotka",Jednotka
+#EXTINF:0 tvg-id="2458735488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jednotka.png" tvg-name="Jednotka",Jednotka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dvojka.png" tvg-name="Dvojka",Dvojka
+#EXTINF:0 tvg-id="2458735552" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dvojka.png" tvg-name="Dvojka",Dvojka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Online",RTVS Online
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Online",RTVS Online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nrsr.png" tvg-name="NRSR Online",NRSR Online
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nrsr.png" tvg-name="NRSR Online",NRSR Online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=nrsr
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/joj.png" tvg-name="JOJ",JOJ
+#EXTINF:0 tvg-id="2458735680" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/joj.png" tvg-name="JOJ",JOJ
 plugin://plugin.video.freeview.sk/?provider=joj&channel=joj
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/plus.png" tvg-name="JOJ Plus",JOJ Plus
+#EXTINF:0 tvg-id="2458735744" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/plus.png" tvg-name="JOJ Plus",JOJ Plus
 plugin://plugin.video.freeview.sk/?provider=joj&channel=plus
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/wau.png" tvg-name="WAU",WAU
+#EXTINF:0 tvg-id="2458735936" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/wau.png" tvg-name="WAU",WAU
 plugin://plugin.video.freeview.sk/?provider=joj&channel=wau
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/family.png" tvg-name="JOJ Family",JOJ Family
+#EXTINF:0 tvg-id="344823488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/family.png" tvg-name="JOJ Family",JOJ Family
 plugin://plugin.video.freeview.sk/?provider=joj&channel=family
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rik.png" tvg-name="RiK",RiK
+#EXTINF:0 tvg-id="2458739584" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rik.png" tvg-name="RiK",RiK
 plugin://plugin.video.freeview.sk/?provider=joj&channel=rik
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/markiza.png" tvg-name="Markíza",Markíza
+#EXTINF:0 tvg-id="2458735616" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/markiza.png" tvg-name="Markíza",Markíza
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/doma.png" tvg-name="Doma",Doma
+#EXTINF:0 tvg-id="2458735808" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/doma.png" tvg-name="Doma",Doma
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dajto.png" tvg-name="Dajto",Dajto
+#EXTINF:0 tvg-id="2458735872" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dajto.png" tvg-name="Dajto",Dajto
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ta3.png" tvg-name="TA3",TA3
+#EXTINF:0 tvg-id="2457865600" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ta3.png" tvg-name="TA3",TA3
 plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
-##EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct1.png" tvg-name="ČT1",ČT1
+##EXTINF:0 tvg-id="344804928" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct1.png" tvg-name="ČT1",ČT1
 #plugin://plugin.video.freeview.sk/?provider=ct&channel=ct1
-##EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct2.png" tvg-name="ČT2",ČT2
+##EXTINF:0 tvg-id="344804992" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct2.png" tvg-name="ČT2",ČT2
 #plugin://plugin.video.freeview.sk/?provider=ct&channel=ct2
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct24.png" tvg-name="ČT24",ČT24
+#EXTINF:0 tvg-id="343997248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct24.png" tvg-name="ČT24",ČT24
 plugin://plugin.video.freeview.sk/?provider=ct&channel=ct24
-##EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctsport.png" tvg-name="ČT Sport",ČT Sport
+##EXTINF:0 tvg-id="344812096" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctsport.png" tvg-name="ČT Sport",ČT Sport
 #plugin://plugin.video.freeview.sk/?provider=ct&channel=ctsport
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctd.png" tvg-name="ČT :D",ČT :D
+#EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctd.png" tvg-name="ČT :D",ČT :D
 plugin://plugin.video.freeview.sk/?provider=ct&channel=ctd
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctart.png" tvg-name="ČT art",ČT art
+#EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctart.png" tvg-name="ČT art",ČT art
 plugin://plugin.video.freeview.sk/?provider=ct&channel=ctart
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova.png" tvg-name="Nova",Nova
+#EXTINF:0 tvg-id="344805056" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova.png" tvg-name="Nova",Nova
 plugin://plugin.video.freeview.sk/?provider=nova&channel=nova
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova2.png" tvg-name="Nova 2",Nova 2
+#EXTINF:0 tvg-id="344805504" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova2.png" tvg-name="Nova 2",Nova 2
 plugin://plugin.video.freeview.sk/?provider=nova&channel=nova2
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novacinema.png" tvg-name="Nova Cinema",Nova Cinema
+#EXTINF:0 tvg-id="344805312" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novacinema.png" tvg-name="Nova Cinema",Nova Cinema
 plugin://plugin.video.freeview.sk/?provider=nova&channel=cinema
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
+#EXTINF:0 tvg-id="344805440" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
 plugin://plugin.video.freeview.sk/?provider=nova&channel=gold
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ocko.png" tvg-name="Óčko",Óčko
+#EXTINF:0 tvg-id="343998016" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ocko.png" tvg-name="Óčko",Óčko
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=ocko
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ockoexpress.png" tvg-name="Óčko Expres",Óčko Expres
+#EXTINF:0 tvg-id="344906688" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ockoexpress.png" tvg-name="Óčko Expres",Óčko Expres
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=expres
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ockostar.png" tvg-name="Óčko Star",Óčko Star
+#EXTINF:0 tvg-id="344841856" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ockostar.png" tvg-name="Óčko Star",Óčko Star
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=star
-#EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/retro.png" tvg-name="Retro Music",Retro Music
+#EXTINF:0 tvg-id="343938944" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/retro.png" tvg-name="Retro Music",Retro Music
 plugin://plugin.video.freeview.sk/?provider=retro&channel=retro
+#EXT-X-ENDLIST
