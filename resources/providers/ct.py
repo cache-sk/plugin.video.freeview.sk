@@ -9,6 +9,8 @@ import xbmcplugin
 
 import requests
 import xml.etree.ElementTree as ET
+import datetime
+
 
 
 CHANNELS = {
@@ -17,7 +19,10 @@ CHANNELS = {
     'ct24':'CT24',
     'ctsport':'CT4',
     'ctd':'CT5',
-    'ctart':'CT6'
+    'ctart':'CT6',
+    'ctdart':[{'channel':'ctd','from':8,'to':20},
+              {'channel':'ctart','from':0,'to':8},
+              {'channel':'ctart','from':20,'to':24}]
 }
 
 HEADERS={"Content-type": "application/x-www-form-urlencoded",
@@ -67,6 +72,15 @@ def play(_handle, _addon, params):
     if not channel in CHANNELS:
         raise #TODO
     channel = CHANNELS[channel]
+    
+    if isinstance(channel,list):
+        now = datetime.datetime.now().hour
+        for chn in channel:
+            if chn['from'] <= now < chn['to'] and chn['channel'] in CHANNELS:
+                channel = CHANNELS[chn['channel']]
+                break
+    if isinstance(channel,list):
+        raise 'still list?'
 
     response = _fetch(PLAYLISTURL, {'quality': 'web', 'ID': channel, 'playerType': 'iPad'})
     root = ET.fromstring(response.text)

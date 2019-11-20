@@ -33,10 +33,12 @@ plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
 plugin://plugin.video.freeview.sk/?provider=ct&channel=ct24
 ##EXTINF:0 tvg-id="344812096" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctsport.png" tvg-name="ČT Sport",ČT Sport
 #plugin://plugin.video.freeview.sk/?provider=ct&channel=ctsport
+#EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctdart.png" tvg-name="ČT :D/art",ČT :D/art
+plugin://plugin.video.freeview.sk/?provider=ct&channel=ctdart
 #EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctd.png" tvg-name="ČT :D",ČT :D
-plugin://plugin.video.freeview.sk/?provider=ct&channel=ctd
+#plugin://plugin.video.freeview.sk/?provider=ct&channel=ctd
 #EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctart.png" tvg-name="ČT art",ČT art
-plugin://plugin.video.freeview.sk/?provider=ct&channel=ctart
+#plugin://plugin.video.freeview.sk/?provider=ct&channel=ctart
 #EXTINF:0 tvg-id="344805056" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova.png" tvg-name="Nova",Nova
 plugin://plugin.video.freeview.sk/?provider=nova&channel=nova
 #EXTINF:0 tvg-id="344805504" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova2.png" tvg-name="Nova 2",Nova 2
