@@ -4,23 +4,19 @@
 
 ## Kodi plugin pre Živé vysielanie slovenských TV
 
-Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na slovensku.
+Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na Slovensku.
 
-Je pravdepodobné, že bude fungovať len na slovensku, z dôvodu geo obmedzení.
 
-Všetko sú to stanice, ktoré sa dajú pozerať na slovensku zdarma priamo cez prehliadač, prípadne nemajú priamo na streame zapnutú geoblokáciu a teda fungujú aj zo slovenska.
+Všetko sú to stanice, ktoré sa dajú pozerať na Slovensku zdarma priamo cez prehliadač, prípadne NEmajú priamo na streame zapnutú geoblokáciu a teda fungujú aj zo Slovenska, každopádne sú to všetko oficiálne retransmisie.
 
-K prehrávaniu je potrebný nainštalovaný a povolený InputStream Adaptive.
+K prehrávaniu je potrebný nainštalovaný a povolený InputStream Adaptive a nastavený PVR IPTV Simple Client.
 
 Playlist je v statický, meniť sa môže len aktualizáciou celého pluginu, ale odvoláva sa nazad na plugin, takže nefunguje samostatne ani mimo Kodi.
 
-Znamená to, že ho môžte skopírovať a rozšíriť o streamy, ktoré máte sami k dispozícii.
+Znamená to, že ho môžte teoreticky skopírovať a rozšíriť o streamy, ktoré máte sami k dispozícii.
 
-Po "spustení" tohto video doplnku sa zobrazí informačná správa a potom urcčíte, kam uložiť playlist pre PVR IPTV Simple Client.
+V menu si môžete vybrat extrakciu playlistu, alebo automatické nastavenie PVR IPTV Simple Client na playlist priamo v plugine.
 
-- playlist je kompatibilný s EPG z https://phazebox.com, plugin má však aj vlastné logá staníc (t.j. preferujte pre logá playlist pred epg)
+Plugin vie aj generovať epg zo Skylink služby, zapnutie a vypnutie je v nastaveniach, v menu je tiež možné nastavenie PVR IPTV Simple Client-a.
 
-- plugin vie aj generovať epg zo Skylink služby, zapnutie a vypnutie je v nastaveniach
-
-- v nastaveniach sú rôzne možnosti, napríklad v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho tam
-
+V nastaveniach sú rôzne možnosti, napríklad v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho tam.
