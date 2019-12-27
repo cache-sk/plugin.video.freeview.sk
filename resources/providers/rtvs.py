@@ -11,6 +11,7 @@ from urllib import urlencode
 CHANNELS = {
     'jednotka':1,
     'dvojka':2,
+    'trojka':3,
     'online':4,
     'nrsr':5
 }

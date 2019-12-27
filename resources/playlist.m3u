@@ -3,6 +3,8 @@
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
 #EXTINF:0 tvg-id="2458735552" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dvojka.png" tvg-name="Dvojka",Dvojka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/trojka.png" tvg-name="Trojka",Trojka
+plugin://plugin.video.freeview.sk/?provider=rtvs&channel=trojka
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Online",RTVS Online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nrsr.png" tvg-name="NRSR Online",NRSR Online
