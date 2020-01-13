@@ -17,8 +17,8 @@ plugin://plugin.video.freeview.sk/?provider=joj&channel=plus
 plugin://plugin.video.freeview.sk/?provider=joj&channel=wau
 #EXTINF:0 tvg-id="344823488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/family.png" tvg-name="JOJ Family",JOJ Family
 plugin://plugin.video.freeview.sk/?provider=joj&channel=family
-#EXTINF:0 tvg-id="2458739584" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rik.png" tvg-name="RiK",RiK
-plugin://plugin.video.freeview.sk/?provider=joj&channel=rik
+#EXTINF:0 tvg-id="2458739584" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojko.png" tvg-name="Jojko",Jojko
+plugin://plugin.video.freeview.sk/?provider=joj&channel=jojko
 #EXTINF:0 tvg-id="2458735616" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/markiza.png" tvg-name="Markíza",Markíza
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
 #EXTINF:0 tvg-id="2458735808" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/doma.png" tvg-name="Doma",Doma
