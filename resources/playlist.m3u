@@ -42,13 +42,15 @@ plugin://plugin.video.freeview.sk/?provider=ct&channel=ctdart
 #EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctart.png" tvg-name="ČT art",ČT art
 #plugin://plugin.video.freeview.sk/?provider=ct&channel=ctart
 #EXTINF:0 tvg-id="344805056" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova.png" tvg-name="Nova",Nova
-#plugin://plugin.video.freeview.sk/?provider=nova&channel=nova
+plugin://plugin.video.freeview.sk/?provider=nova&channel=nova
 #EXTINF:0 tvg-id="344805504" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova2.png" tvg-name="Nova 2",Nova 2
-#plugin://plugin.video.freeview.sk/?provider=nova&channel=nova2
+plugin://plugin.video.freeview.sk/?provider=nova&channel=nova2
 #EXTINF:0 tvg-id="344805312" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novacinema.png" tvg-name="Nova Cinema",Nova Cinema
-#plugin://plugin.video.freeview.sk/?provider=nova&channel=cinema
+plugin://plugin.video.freeview.sk/?provider=nova&channel=cinema
+#EXTINF:0 tvg-id="344805376" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novaaction.png" tvg-name="Nova Action",Nova Action
+plugin://plugin.video.freeview.sk/?provider=nova&channel=action
 #EXTINF:0 tvg-id="344805440" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
-#plugin://plugin.video.freeview.sk/?provider=nova&channel=gold
+plugin://plugin.video.freeview.sk/?provider=nova&channel=gold
 #EXTINF:0 tvg-id="343998016" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ocko.png" tvg-name="Óčko",Óčko
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=ocko
 #EXTINF:0 tvg-id="344906688" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ockoexpress.png" tvg-name="Óčko Expres",Óčko Expres
