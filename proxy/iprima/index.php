@@ -3,8 +3,9 @@
 		<title>kodi tools</title>
 	</head>
 	<body>
-		Stranka sluzi na ziskanie streamov free vysielania.<br/>
+		Stranka sluzi na ziskanie url streamov free vysielania.<br/>
 		Neprenasa ziadne velke binarne data.<br/>
+		Obsluzenych requestov: <?=file_get_contents("rcount")?><br/><br/>
 		<button id="test">Spustit test funkcnosti</button><br/>
 		<pre id="result"></pre>
 	</body>

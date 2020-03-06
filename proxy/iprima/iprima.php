@@ -11,6 +11,16 @@
 	
 	$isTest = isset($_GET["test"]);
 	
+	if (!$isTest && $USERNAME !== "" && $PASSWORD !== ""){
+		if (!isset($_SERVER['PHP_AUTH_USER']) ||
+			($_SERVER['PHP_AUTH_USER'] !== $USERNAME && $_SERVER['PHP_AUTH_PW'] !== $PASSWORD)) {
+			header('WWW-Authenticate: Basic realm="kodi tools"');
+			header('HTTP/1.0 401 Unauthorized');
+			echo 'CHSKYM?';
+			exit;
+		}
+	}
+	
 	if ((isset($_GET["ch"]) && isset($CHANNELS[$_GET["ch"]])) || ($isTest && isset($_GET["ch"]))){
 		require_once './Requests.php';
 		Requests::register_autoloader();

@@ -1,4 +1,7 @@
 <?
+	$USERNAME = "";
+	$PASSWORD = "";
+	
 	$CHANNELS = array(
 		"prima" => array(
 			"https://prima.iprima.cz/",
