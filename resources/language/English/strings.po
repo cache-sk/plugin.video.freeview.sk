@@ -35,6 +35,10 @@ msgctxt "#30007"
 msgid "Nastaviť generované epg do PVR IPTV Simple Client"
 msgstr "Nastaviť generované epg do PVR IPTV Simple Client"
 
+msgctxt "#30008"
+msgid "Pregenerovať EPG"
+msgstr "Pregenerovať EPG"
+
 msgctxt "#30010"
 msgid "Nemáš nainštalovaný PVR IPTV Simple Client"
 msgstr "Nemáš nainštalovaný PVR IPTV Simple Client"
@@ -122,6 +126,10 @@ msgstr "Nepodarilo sa skopírovať playlist."
 msgctxt "#30902"
 msgid "Vo vybranom adresári už existuje playlist.m3u - prepísať?"
 msgstr "Vo vybranom adresári už existuje playlist.m3u - prepísať?"
+
+msgctxt "#30903"
+msgid "Proces spustený, počkajte na výsledok."
+msgstr "Proces spustený, počkajte na výsledok."
 
 msgctxt "#30998"
 msgid "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi. Pokračovať?"

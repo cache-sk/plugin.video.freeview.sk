@@ -51,6 +51,18 @@ plugin://plugin.video.freeview.sk/?provider=nova&channel=cinema
 plugin://plugin.video.freeview.sk/?provider=nova&channel=action
 #EXTINF:0 tvg-id="344805440" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
 plugin://plugin.video.freeview.sk/?provider=nova&channel=gold
+#EXTINF:0 tvg-id="344805120" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/prima.png" tvg-name="Prima",Prima
+plugin://plugin.video.freeview.sk/?provider=prima&channel=prima
+#EXTINF:0 tvg-id="344812416" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primacool.png" tvg-name="Prima Cool",Prima Cool
+plugin://plugin.video.freeview.sk/?provider=prima&channel=cool
+#EXTINF:0 tvg-id="344723136" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primamax.png" tvg-name="Prima Max",Prima Max
+plugin://plugin.video.freeview.sk/?provider=prima&channel=max
+#EXTINF:0 tvg-id="344854784" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primakrimi.png" tvg-name="Prima Krimi",Prima Krimi
+plugin://plugin.video.freeview.sk/?provider=prima&channel=krimi
+#EXTINF:0 tvg-id="344805632" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primalove.png" tvg-name="Prima Love",Prima Love
+plugin://plugin.video.freeview.sk/?provider=prima&channel=love
+#EXTINF:0 tvg-id="344805696" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primazoom.png" tvg-name="Prima Zoom",Prima Zoom
+plugin://plugin.video.freeview.sk/?provider=prima&channel=zoom
 #EXTINF:0 tvg-id="343998016" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ocko.png" tvg-name="Óčko",Óčko
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=ocko
 #EXTINF:0 tvg-id="344906688" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ockoexpress.png" tvg-name="Óčko Expres",Óčko Expres

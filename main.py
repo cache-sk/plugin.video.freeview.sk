@@ -107,6 +107,11 @@ def setpiscgenepg():
     pisc.setSetting('epgTSOverride','false')
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
+def regenepg():
+    _addon.setSetting('genepg', 'false')
+    _addon.setSetting('genepg', 'true')
+    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30903))
+
 def setpiscepg():
     try:
         pisc = xbmcaddon.Addon('pvr.iptvsimple')
@@ -149,6 +154,7 @@ def menu():
     xbmcplugin.addDirectoryItem(_handle, get_url(action='extract'), xbmcgui.ListItem(label=_addon.getLocalizedString(30002)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='setpisc'), xbmcgui.ListItem(label=_addon.getLocalizedString(30003)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='setpiscgenepg'), xbmcgui.ListItem(label=_addon.getLocalizedString(30007)), False)
+    xbmcplugin.addDirectoryItem(_handle, get_url(action='regenepg'), xbmcgui.ListItem(label=_addon.getLocalizedString(30008)), False)
     #xbmcplugin.addDirectoryItem(_handle, get_url(action='setpiscepg'), xbmcgui.ListItem(label=_addon.getLocalizedString(30006)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='settings'), xbmcgui.ListItem(label=_addon.getLocalizedString(30004)), False)
     xbmcplugin.addDirectoryItem(_handle, get_url(action='piscsettings'), xbmcgui.ListItem(label=_addon.getLocalizedString(30005)), False)

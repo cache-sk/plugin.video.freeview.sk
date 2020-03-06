@@ -5,20 +5,33 @@
 
 import xbmcgui
 import xbmcplugin
-
+import requests.cookies
 from urllib import urlencode
+from bs4 import BeautifulSoup
 
-
-CHANNELS = {
-    'prima':'https://prima-ott-live.ssl.cdn.cra.cz/channels/prima_family/playlist/cze/live_hq.m3u8',
-    'love':'https://prima-ott-live.ssl.cdn.cra.cz/channels/prima_love/playlist/cze/live_hq.m3u8',
-    'krimi':'https://prima-ott-live.ssl.cdn.cra.cz/channels/prima_krimi/playlist/cze/live_hq.m3u8',
-    'max':'https://prima-ott-live.ssl.cdn.cra.cz/channels/prima_max/playlist/cze/live_hq.m3u8',
-    'cool':'https://prima-ott-live.ssl.cdn.cra.cz/channels/prima_cool/playlist/cze/live_hq.m3u8',
-    'zoom':'https://prima-ott-live.ssl.cdn.cra.cz/channels/prima_zoom/playlist/cze/live_hq.m3u8'
-}
-
+PROXY_BASE = "http://p.xf.cz" #TODO - to settings?
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
+CHANNELS = ['prima','love','krimi','max','cool','zoom']
+
 
 def play(_handle, _addon, params):
-    raise #403
+    channel = params['channel']
+    if not channel in CHANNELS:
+        raise #TODO
+
+    session = requests.Session()
+    headers = {}
+    headers.update(HEADERS)
+
+    #load index and banner, so page will not be delted
+    response = session.get(PROXY_BASE, headers=headers)
+    html = BeautifulSoup(response.text, features="html.parser")
+    items = html.find_all('script',{},True)
+    for item in items:
+        if item.has_attr('src'):
+            response = session.get("http:"+item["src"] if item["src"].startswith("//") else item["src"], headers=headers)
+
+    li = xbmcgui.ListItem(path=PROXY_BASE + "/iprima.php?ch=" + channel)
+    li.setProperty('inputstreamaddon','inputstream.adaptive')
+    li.setProperty('inputstream.adaptive.manifest_type','hls')
+    xbmcplugin.setResolvedUrl(_handle, True, li)
