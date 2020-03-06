@@ -24,13 +24,16 @@ def play(_handle, _addon, params):
     headers.update(HEADERS)
 
     #load index and banner, so page will not be delted
-    response = session.get(PROXY_BASE, headers=headers)
-    html = BeautifulSoup(response.text, features="html.parser")
-    items = html.find_all('script',{},True)
-    for item in items:
-        if item.has_attr('src'):
-            response = session.get("http:"+item["src"] if item["src"].startswith("//") else item["src"], headers=headers)
-
+    try:
+        response = session.get(PROXY_BASE, headers=headers)
+        html = BeautifulSoup(response.text, features="html.parser")
+        items = html.find_all('script',{},True)
+        for item in items:
+            if item.has_attr('src'):
+                response = session.get("http:"+item["src"] if item["src"].startswith("//") else item["src"], headers=headers)
+    except:
+        pass
+    
     li = xbmcgui.ListItem(path=PROXY_BASE + "/iprima.php?ch=" + channel)
     li.setProperty('inputstreamaddon','inputstream.adaptive')
     li.setProperty('inputstream.adaptive.manifest_type','hls')
