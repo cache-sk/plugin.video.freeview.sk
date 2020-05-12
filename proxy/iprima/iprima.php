@@ -3,10 +3,6 @@
 	//https://requests.ryanmccue.info/
 	//https://github.com/rmccue/Requests
 	
-	$requests = file_get_contents("rcount");
-	$requests++;
-	file_put_contents("rcount",$requests);
-	
 	require_once("iconfig.php");
 	
 	$isTest = isset($_GET["test"]);
@@ -22,6 +18,16 @@
 	}
 	
 	if ((isset($_GET["ch"]) && isset($CHANNELS[$_GET["ch"]])) || ($isTest && isset($_GET["ch"]))){
+		
+		try { //info log
+			$requests = file_get_contents("rcount");
+			$requests++;
+			file_put_contents("rcount",$requests);
+		} catch (Exception $e) {
+			//ignore
+		}
+		
+		
 		require_once './Requests.php';
 		Requests::register_autoloader();
 		

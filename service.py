@@ -24,7 +24,7 @@ class SkylinkMonitor(xbmc.Monitor):
     def notify(self, text, error=False):
         text = text.encode("utf-8") if type(text) is unicode else text
         icon = 'DefaultIconError.png' if error else ''
-        xbmc.executebuiltin('Notification("%s","%s",5000,%s)' % (self._addon.getAddonInfo('name').encode("utf-8"), text, icon))
+        xbmc.executebuiltin('Notification("%s","%s",5000,%s)' % (self._addon.getAddonInfo('name'), text, icon))
 
     def onSettingsChanged(self):
         self._addon = xbmcaddon.Addon()  # refresh for updated settings!
