@@ -17,15 +17,15 @@ def process24(_handle, _addon, params):
     session.headers.update(HEADERS)
     session.get("https://www.ceskatelevize.cz/")
     response = session.get("https://ct24.ceskatelevize.cz/")
-    html = BeautifulSoup(response.text, features="html.parser")
+    html = BeautifulSoup(response.content, features="html.parser")
     items = html.find_all('span',{'class':'media-ivysilani-placeholder'},True)
     dataUrl = items[0]['data-url']
-    matches = re.search('media_ivysilani:{hash:"([^"]*)"', response.text)
+    matches = re.search('media_ivysilani:{hash:"([^"]*)"', response.content)
     hsh = matches.group(1)
     
     iframe = dataUrl+'&hash='+hsh
     response = session.get(iframe)
-    matches = re.search("wvLicenseProxyUrl: \'(\S*)\',", response.text)
+    matches = re.search("wvLicenseProxyUrl: \'(\S*)\',", response.content)
     licence = matches.group(1)
 
 

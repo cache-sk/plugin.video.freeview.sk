@@ -26,7 +26,7 @@ def play(_handle, _addon, params):
     #load index and banner, so page will not be delted
     try:
         response = session.get(PROXY_BASE, headers=headers)
-        html = BeautifulSoup(response.text, features="html.parser")
+        html = BeautifulSoup(response.content, features="html.parser")
         items = html.find_all('script',{},True)
         for item in items:
             if item.has_attr('src'):

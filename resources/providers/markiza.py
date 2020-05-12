@@ -44,7 +44,7 @@ def play(_handle, _addon, params):
     headers = {}
     headers.update(HEADERS)
     response = session.get(BASE, headers=headers)
-    html = BeautifulSoup(response.text, features="html.parser")
+    html = BeautifulSoup(response.content, features="html.parser")
     
     items = html.find_all('input',{'type':'hidden','name':'_token_'},True)
     if len(items) > 0:
@@ -74,7 +74,7 @@ def play(_handle, _addon, params):
     #response = session.get(AFTER, headers=headers)
     #headers.update({'Referer':AFTER})
     response = session.get(CHANNELS[channel], headers=headers)
-    html = BeautifulSoup(response.text, features="html.parser")
+    html = BeautifulSoup(response.content, features="html.parser")
     items = html.find_all('iframe',{'allowfullscreen':''},True)
     if len(items) > 0:
         iframe1 = items[0]['src']
@@ -83,7 +83,7 @@ def play(_handle, _addon, params):
 
     headers.update({'Referer':CHANNELS[channel]})
     response = session.get(iframe1, headers=headers)
-    html = BeautifulSoup(response.text, features="html.parser")
+    html = BeautifulSoup(response.content, features="html.parser")
     items = html.find_all('iframe',{},True)
     if len(items) > 0:
         iframe2 = items[0]['src']
@@ -92,7 +92,7 @@ def play(_handle, _addon, params):
 
     headers.update({'Referer':iframe1})
     response = session.get(iframe2, headers=headers)
-    matches = re.search("\"hls\": \"(.*)\"", response.text)
+    matches = re.search("\"hls\": \"(.*)\"", response.content)
     hls = matches.group(1)
     
     headers.update({'Referer':iframe2})

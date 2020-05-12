@@ -48,7 +48,7 @@ def _token_refresh():
     params = {"user": "iDevicesMotion"}
     response = _https_ceska_televize_fetch(TOKENURL, params)
     global _token
-    _token = ET.fromstring(response.text).text
+    _token = ET.fromstring(response.content).text
 
 def _fetch(url, params):
     if _token is None:
@@ -56,7 +56,7 @@ def _fetch(url, params):
     params["token"] = _token
     response = _https_ceska_televize_fetch(url, params)
     try:
-        root = ET.fromstring(response.text)
+        root = ET.fromstring(response.content)
     except:
         return None
     if root.tag == "errors":
@@ -83,12 +83,12 @@ def play(_handle, _addon, params):
         raise 'still list?'
 
     response = _fetch(PLAYLISTURL, {'quality': 'web', 'ID': channel, 'playerType': 'iPad'})
-    root = ET.fromstring(response.text)
+    root = ET.fromstring(response.content)
     if root.tag == "errors":
         raise Exception(', '.join([e.text for e in root]))
     playlist_url = root.text
     response = _session.get(playlist_url)
-    playlist_data = response.text
+    playlist_data = response.content
     root = ET.fromstring(playlist_data)
     videos = root.findall("smilRoot/body//video")
     manifest = videos[0].get('src')

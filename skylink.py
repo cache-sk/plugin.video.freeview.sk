@@ -76,7 +76,7 @@ def get_epg(channels, from_date=datetime.datetime.now(), days=7, recalculate=Tru
                 'f': ts(from_date), 't': ts(to_date), 'cs': 212443, 's': ids}
 
     response = session.get(PAGE_URL + API_URL + 'capi.aspx', params=params)
-    print response.text
+    
     data = response.json()[1]
 
     #result = []

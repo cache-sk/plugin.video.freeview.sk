@@ -24,7 +24,7 @@ def play(_handle, _addon, params):
     session = requests.Session()
     session.headers.update(HEADERS)
     response = session.get(CHANNELS[channel])
-    matches = re.findall("\"src\" : \"([^}]*)\"", response.text)
+    matches = re.findall("\"src\" : \"([^}]*)\"", response.content)
     src = None
     for match in matches:
         if '1.smil' in match:
