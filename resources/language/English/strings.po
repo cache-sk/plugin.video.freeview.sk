@@ -136,13 +136,13 @@ msgid "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odklikn
 msgstr "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi. Pokračovať?"
 
 msgctxt "#30999"
-msgid "Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na Slovensku.\n\n"
-"Všetko sú to stanice, ktoré sa dajú pozerať na Slovensku zdarma priamo cez prehliadač, prípadne NEmajú priamo na streame zapnutú geoblokáciu a teda fungujú aj zo Slovenska, každopádne sú to všetko oficiálne retransmisie.\n"
-"K prehrávaniu je potrebný nainštalovaný a povolený InputStream Adaptive a nastavený PVR IPTV Simple Client.\n"
-"Playlist je v statický, meniť sa môže len aktualizáciou celého pluginu, ale odvoláva sa nazad na plugin, takže nefunguje samostatne ani mimo Kodi.\n"
+msgid "Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na Slovensku a určený je pre región Slovensko (nie, fakt Markiza nepôjde v CZ).\n\n"
+"Slovenské, hudobné a dve ČT stanice sú verejne dostupné cez ich webstránky zo slovenska, Nova má geoblokáciu len na web stránke a pre Primu je spustená proxy na získanie streamu, ktorý už následne ide napriamo na ich servre. Všetko sú to oficiálne retransmisie.\n"
+"K prehrávaniu je potrebný nainštalovaný a povolený InputStream Adaptive a odporúčam aj PVR IPTV Simple Client.\n"
+"Playlist je statický, meniť sa môže len aktualizáciou celého pluginu, ale odvoláva sa nazad na plugin, takže nefunguje samostatne ani mimo Kodi.\n"
 "Znamená to, že ho môžte teoreticky skopírovať a rozšíriť o streamy, ktoré máte sami k dispozícii.\n"
 "V menu si môžete vybrat extrakciu playlistu, alebo automatické nastavenie PVR IPTV Simple Client na playlist priamo v plugine.\n"
-"Plugin vie aj generovať epg zo Skylink služby, zapnutie a vypnutie je v nastaveniach, v menu je tiež možné nastavenie PVR IPTV Simple Client-a.\n"
+"Plugin vie aj generovať epg zo Skylink služby, zapnutie a vypnutie je v nastaveniach, v menu je tiež možné nastavenie epg do PVR IPTV Simple Client-a.\n"
 "V nastaveniach sú rôzne možnosti, napríklad v prípade, že Markíza nefunguje, skúste si zaregistorvať vlastné konto a zmeniť ho tam."
 msgstr ""
 
