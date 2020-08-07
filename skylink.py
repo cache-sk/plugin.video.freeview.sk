@@ -32,7 +32,9 @@ def tidy_epg(epg_info):
         if 'description' in data:
             data['description'] = data['description'].strip()
         if 'cover' in data:
-            data['cover'] = PAGE_URL + API_URL + data['cover'].replace('ppsimages', 'ppsimages/447x251')
+            # url in web page - https://m7cz.solocoo.tv/m7cziphone/mmchan/mpimages/447x251/_hash_.jpg
+            # url in data - mmchan/mpimages/_hash_.jpg
+            data['cover'] = "https://m7cz.solocoo.tv/m7cziphone/" + data['cover'].replace('mpimages', 'mpimages/447x251')
         data.update(times(data['locId']))
     return epg_info
 
