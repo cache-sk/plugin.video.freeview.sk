@@ -115,6 +115,14 @@ msgctxt "#30132"
 msgid "Použiť alternatívne streamy"
 msgstr "Použiť alternatívne streamy"
 
+msgctxt "#30140"
+msgid "Joj"
+msgstr "Joj"
+
+msgctxt "#30141"
+msgid "Jojko backup stream"
+msgstr "Jojko backup stream"
+
 msgctxt "#30900"
 msgid "Playlist bol skopírovaný"
 msgstr "Playlist bol skopírovaný"

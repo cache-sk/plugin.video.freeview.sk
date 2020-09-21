@@ -10,7 +10,7 @@
     </category>
     <category label="30110">
         <setting label="30111" type="bool" id="rtvsmpd" default="false"/>
-        <setting label="30112" type="bool" id="rtvsalt" default="false"/>
+        <setting label="30112" type="bool" id="rtvsalt" default="false" visible="false"/>
     </category>
     <category label="30120">
         <setting label="30121" type="bool" id="ockompd" default="false"/>
@@ -18,5 +18,8 @@
     <category label="30130">
         <setting label="30131" type="bool" id="retroparse" default="true"/>
         <setting label="30132" type="bool" id="retroalt" default="true"/>
+    </category>
+    <category label="30140">
+        <setting label="30141" type="bool" id="jojkobackup" default="false"/>
     </category>
 </settings>

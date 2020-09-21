@@ -13,10 +13,9 @@ CHANNELS = {
     'joj':{'src':'https://nn.geo.joj.sk/live/joj-index.m3u8','referer':'https://live.joj.sk/'},
     'plus':{'src':'https://nn.geo.joj.sk/live/jojplus-index.m3u8', 'referer':'https://plus.joj.sk/live'},
     'wau':{'src':'https://nn.geo.joj.sk/live/wau-index.m3u8', 'referer':'https://wau.joj.sk/live'},
-    'jojko':{'src':'https://nn.geo.joj.sk/live/rik-index.m3u8', 'referer':'https://jojko.joj.sk/live'}, #http://nn2.joj.sk/hls/rik-540.m3u8
+    'jojko':{'src':'https://nn.geo.joj.sk/live/rik-index.m3u8', 'backup':'https://nn.geo.joj.sk/live/hls/rik-360.m3u8', 'referer':'https://jojko.joj.sk/live'},
     'family':{'src':'https://nn.geo.joj.sk/live/family-index.m3u8', 'referer':'http://jojfamily.blesk.cz/live'}
 }
-#alternative - https://ocko-live.ssl.cdn.cra.cz/channels/joj/playlist/cze/live_hd.m3u8
 
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 
@@ -25,11 +24,17 @@ def play(_handle, _addon, params):
     if not channel in CHANNELS:
         raise #TODO
 
+    use_backup = xbmcplugin.getSetting(_handle, 'jojkobackup') == 'true'
+    
     channel = CHANNELS[channel]
     headers = {'Referer':channel['referer']}
     headers.update(HEADERS)
 
-    li = xbmcgui.ListItem(path=channel['src']+'|'+urlencode(headers))
-    li.setProperty('inputstreamaddon','inputstream.adaptive')
-    li.setProperty('inputstream.adaptive.manifest_type','hls')
-    xbmcplugin.setResolvedUrl(_handle, True, li)
+    if use_backup and 'backup' in channel:
+        li = xbmcgui.ListItem(path=channel['backup']+'|'+urlencode(headers))
+        xbmcplugin.setResolvedUrl(_handle, True, li)
+    else:
+        li = xbmcgui.ListItem(path=channel['src']+'|'+urlencode(headers))
+        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstream.adaptive.manifest_type','hls')
+        xbmcplugin.setResolvedUrl(_handle, True, li)
