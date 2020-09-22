@@ -33,7 +33,7 @@ def play(_handle, _addon, params):
         raise #TODO
     
     prefer_mpd = xbmcplugin.getSetting(_handle, 'rtvsmpd') == 'true'
-    alternative = xbmcplugin.getSetting(_handle, 'rtvsalt') == 'true'
+    alternative = False #xbmcplugin.getSetting(_handle, 'rtvsalt') == 'true'
 
     if alternative and channel in ALTERNATIVE:
         li = xbmcgui.ListItem(path=ALTERNATIVE[channel] + '|' + urlencode(HEADERS))
