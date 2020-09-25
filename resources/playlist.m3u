@@ -63,6 +63,8 @@ plugin://plugin.video.freeview.sk/?provider=prima&channel=krimi
 plugin://plugin.video.freeview.sk/?provider=prima&channel=love
 #EXTINF:0 tvg-id="344805696" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primazoom.png" tvg-name="Prima Zoom",Prima Zoom
 plugin://plugin.video.freeview.sk/?provider=prima&channel=zoom
+#EXTINF:0 tvg-id="344913920" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/cnnprimanews.png" tvg-name="CNN Prima News",CNN Prima News
+plugin://plugin.video.freeview.sk/?provider=prima&channel=cnn
 #EXTINF:0 tvg-id="343998016" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ocko.png" tvg-name="Óčko",Óčko
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=ocko
 #EXTINF:0 tvg-id="344906688" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ockoexpress.png" tvg-name="Óčko Expres",Óčko Expres

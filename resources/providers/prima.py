@@ -14,27 +14,43 @@ HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/53
 CHANNELS = ['prima','love','krimi','max','cool','zoom']
 
 
-def play(_handle, _addon, params):
-    channel = params['channel']
-    if not channel in CHANNELS:
-        raise #TODO
-
+def playcnn(_handle, _addon, params):
     session = requests.Session()
     headers = {}
     headers.update(HEADERS)
+    response = session.get('https://api.play-backend.iprima.cz/api/v1/products/id-p650443/play', headers=headers)
+    data = response.json()
+    if 'streamInfos' in data and data['streamInfos']:
+        li = xbmcgui.ListItem(path=data['streamInfos'][0]['url'])
+        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstream.adaptive.manifest_type','hls')
+        xbmcplugin.setResolvedUrl(_handle, True, li)
+        
 
-    #load index and banner, so page will not be delted
-    try:
-        response = session.get(PROXY_BASE, headers=headers)
-        html = BeautifulSoup(response.content, features="html.parser")
-        items = html.find_all('script',{},True)
-        for item in items:
-            if item.has_attr('src'):
-                response = session.get("http:"+item["src"] if item["src"].startswith("//") else item["src"], headers=headers)
-    except:
-        pass
-    
-    li = xbmcgui.ListItem(path=PROXY_BASE + "/iprima.php?ch=" + channel)
-    li.setProperty('inputstreamaddon','inputstream.adaptive')
-    li.setProperty('inputstream.adaptive.manifest_type','hls')
-    xbmcplugin.setResolvedUrl(_handle, True, li)
+def play(_handle, _addon, params):
+    channel = params['channel']
+    if 'cnn' == channel:
+        playcnn(_handle, _addon, params)
+    elif not channel in CHANNELS:
+        raise #TODO
+    else:
+        session = requests.Session()
+        headers = {}
+        headers.update(HEADERS)
+
+        #load index and banner, so page will not be delted
+        try:
+            response = session.get(PROXY_BASE, headers=headers)
+            html = BeautifulSoup(response.content, features="html.parser")
+            items = html.find_all('script',{},True)
+            for item in items:
+                if item.has_attr('src'):
+                    response = session.get("http:"+item["src"] if item["src"].startswith("//") else item["src"], headers=headers)
+        except:
+            pass
+        
+        li = xbmcgui.ListItem(path=PROXY_BASE + "/iprima.php?ch=" + channel)
+        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstream.adaptive.manifest_type','hls')
+        xbmcplugin.setResolvedUrl(_handle, True, li)
+        
