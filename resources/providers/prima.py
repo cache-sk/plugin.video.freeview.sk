@@ -6,8 +6,12 @@
 import xbmcgui
 import xbmcplugin
 import requests.cookies
-from urllib import urlencode
 from bs4 import BeautifulSoup
+
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
 
 PROXY_BASE = "http://p.xf.cz" #TODO - to settings?
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
@@ -22,7 +26,8 @@ def playcnn(_handle, _addon, params):
     data = response.json()
     if 'streamInfos' in data and data['streamInfos']:
         li = xbmcgui.ListItem(path=data['streamInfos'][0]['url'])
-        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+        li.setProperty('inputstream','inputstream.adaptive') #kodi 19
         li.setProperty('inputstream.adaptive.manifest_type','hls')
         xbmcplugin.setResolvedUrl(_handle, True, li)
         
@@ -50,7 +55,8 @@ def play(_handle, _addon, params):
             pass
         
         li = xbmcgui.ListItem(path=PROXY_BASE + "/iprima.php?ch=" + channel)
-        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+        li.setProperty('inputstream','inputstream.adaptive') #kodi 19
         li.setProperty('inputstream.adaptive.manifest_type','hls')
         xbmcplugin.setResolvedUrl(_handle, True, li)
         

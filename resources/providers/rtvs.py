@@ -6,7 +6,10 @@
 import xbmcgui
 import xbmcplugin
 import requests
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
 
 CHANNELS = {
     'jednotka':1,
@@ -37,7 +40,8 @@ def play(_handle, _addon, params):
 
     if alternative and channel in ALTERNATIVE:
         li = xbmcgui.ListItem(path=ALTERNATIVE[channel] + '|' + urlencode(HEADERS))
-        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+        li.setProperty('inputstream','inputstream.adaptive') #kodi 19
         li.setProperty('inputstream.adaptive.manifest_type','hls')
         xbmcplugin.setResolvedUrl(_handle, True, li)
     else:
@@ -62,12 +66,14 @@ def play(_handle, _addon, params):
 
         if (prefer_mpd or hls is None) and mpd is not None:
             li = xbmcgui.ListItem(path=mpd+headers)
-            li.setProperty('inputstreamaddon','inputstream.adaptive')
+            li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+            li.setProperty('inputstream','inputstream.adaptive') #kodi 19
             li.setProperty('inputstream.adaptive.manifest_type','mpd')
             xbmcplugin.setResolvedUrl(_handle, True, li)
         elif hls is not None:
             li = xbmcgui.ListItem(path=hls+headers)
-            li.setProperty('inputstreamaddon','inputstream.adaptive')
+            li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+            li.setProperty('inputstream','inputstream.adaptive') #kodi 19
             li.setProperty('inputstream.adaptive.manifest_type','hls')
             xbmcplugin.setResolvedUrl(_handle, True, li)
         else:

@@ -94,6 +94,7 @@ def play(_handle, _addon, params):
     manifest = videos[0].get('src')
 
     li = xbmcgui.ListItem(path=manifest)
-    li.setProperty('inputstreamaddon','inputstream.adaptive')
+    li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+    li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.manifest_type','hls')
     xbmcplugin.setResolvedUrl(_handle, True, li)

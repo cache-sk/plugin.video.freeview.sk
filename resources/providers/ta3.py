@@ -7,7 +7,10 @@ import xbmcgui
 import xbmcplugin
 import requests
 import re
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
 
 
 CHANNELS = {
@@ -24,7 +27,12 @@ def play(_handle, _addon, params):
     session = requests.Session()
     session.headers.update(HEADERS)
     response = session.get(CHANNELS[channel])
-    matches = re.findall("\"src\" : \"([^}]*)\"", response.content)
+    content = response.content
+    try:
+        content = content.decode('utf-8')
+    except AttributeError:
+        pass
+    matches = re.findall("\"src\" : \"([^}]*)\"", content)
     src = None
     for match in matches:
         if '1.smil' in match:
@@ -36,7 +44,8 @@ def play(_handle, _addon, params):
         src = 'https:' + src
 
     li = xbmcgui.ListItem(path=src+'|'+urlencode(HEADERS))
-    li.setProperty('inputstreamaddon','inputstream.adaptive')
+    li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+    li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.manifest_type','hls')
     xbmcplugin.setResolvedUrl(_handle, True, li)
 

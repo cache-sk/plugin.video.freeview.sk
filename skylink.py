@@ -46,13 +46,13 @@ def get_epg(channels, from_date=datetime.datetime.now(), days=7, recalculate=Tru
     ids = ''
 
     for channel in channels:
-        print channel
+        #print(channel)
         if u'0' != channel['id']:
             ids = ids + channel['id'] + '!'
 
     ids = ids[:-1]
 
-    print ids
+    #print(ids)
 
     if recalculate:
         from_date = from_date.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -93,7 +93,12 @@ def get_epg(channels, from_date=datetime.datetime.now(), days=7, recalculate=Tru
 def generate_plot(epg, now, chtitle, items_left = 3):
 
     def get_plot_line(start, title):
-        return '[B]' + start.strftime('%H:%M').decode('UTF-8') + '[/B] ' + title + '[CR]'
+        time = start.strftime('%H:%M')
+        try:
+            time = time.decode('UTF-8')
+        except AttributeError:
+            pass
+        return '[B]' + time + '[/B] ' + title + '[CR]'
 
     plot = u''
     last_program = None
@@ -134,7 +139,7 @@ def generate_xmltv(channels, epg, path):
         file.write(u'<tv>\n')
 
         for channel in channels:
-            print channel
+            #print(channel)
             file.write(u'<channel id="%s">\n' % channel['id'])
             file.write(u'<display-name>%s</display-name>\n' % channel['name'])
             file.write(u'</channel>\n')

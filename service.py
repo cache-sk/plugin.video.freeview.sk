@@ -7,19 +7,32 @@ import m3u
 import xbmc
 import xbmcaddon
 import traceback
+import string
+import random
 
 class SkylinkMonitor(xbmc.Monitor):
     _addon = None
+    _profile = ''
     _next_update = 0
 
     def __init__(self):
         xbmc.Monitor.__init__(self)
         self._addon = xbmcaddon.Addon()
+        self._profile = xbmc.translatePath(self._addon.getAddonInfo('profile'))
+        try:
+            self._profile = self._profile.decode("utf-8")
+        except AttributeError:
+            pass
         ts = self._addon.getSetting('genepg_next_update')
         self._next_update = datetime.datetime.now() if ts == '' else datetime.datetime.fromtimestamp(float(ts))
+        #cleanup
+        if os.path.exists(self._profile):
+            files_to_remove = [f for f in os.listdir(self._profile) if os.path.isfile(os.path.join(self._profile, f)) and f.endswith('.work.xml')]
+            for f in files_to_remove:
+                os.unlink(os.path.join(self._profile, f))
 
     def __del__(self):
-        print 'service destroyed'
+        print('freeview service destroyed')
 
     def notify(self, text, error=False):
         text = text.encode("utf-8") if type(text) is unicode else text
@@ -38,7 +51,7 @@ class SkylinkMonitor(xbmc.Monitor):
 
     def schedule_next(self, seconds):
         dt = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
-        print 'Next update %s' % dt
+        print('Next freeview update %s' % dt)
         self._next_update = dt
 
     def update(self):
@@ -46,11 +59,12 @@ class SkylinkMonitor(xbmc.Monitor):
         if not gse:
             return False
 
-        _profile = xbmc.translatePath(self._addon.getAddonInfo('profile')).decode("utf-8")
         _playlist = 'special://home/addons/'+self._addon.getAddonInfo('id')+'/resources/playlist.m3u'
-        if not os.path.exists(_profile):
-            os.makedirs(_profile)
-        path = os.path.join(_profile, 'epg.xml')
+        if not os.path.exists(self._profile):
+            os.makedirs(self._profile)
+            
+        workpath = os.path.join(self._profile, get_random_string(8) + 'work.epg.xml')
+        path = os.path.join(self._profile, 'epg.xml')
 
         with io.open(xbmc.translatePath(_playlist), 'r', encoding='utf8') as file:
             m3u_data = file.read()
@@ -58,7 +72,10 @@ class SkylinkMonitor(xbmc.Monitor):
         channels = m3u.process(m3u_data)
         now = datetime.datetime.now()
         epg = skylink.get_epg(channels)
-        skylink.generate_xmltv(channels,epg,path)
+        skylink.generate_xmltv(channels,epg,workpath)
+        if os.path.isfile(path):
+            os.unlink(path)
+        os.rename(workpath, path)
 
         return True
 
@@ -73,7 +90,12 @@ class SkylinkMonitor(xbmc.Monitor):
 
     def save(self):
         self._addon.setSetting('genepg_next_update', str(time.mktime(self._next_update.timetuple())))
-        print 'Saving next update %s' % self._next_update
+        print('Saving freeview next update %s' % self._next_update)
+
+def get_random_string(length):
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
 
 
 if __name__ == '__main__':

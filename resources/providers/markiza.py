@@ -6,9 +6,14 @@
 import xbmcgui
 import xbmcplugin
 import requests.cookies
-from urllib import urlencode
 from bs4 import BeautifulSoup
 import re
+
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 
 CHANNELS = {
     'markiza':"https://videoarchiv.markiza.sk/live/1-markiza",
@@ -92,12 +97,18 @@ def play(_handle, _addon, params):
 
     headers.update({'Referer':iframe1})
     response = session.get(iframe2, headers=headers)
-    matches = re.search("\"hls\": \"(.*)\"", response.content)
+    content = response.content
+    try:
+        content = content.decode('utf-8')
+    except AttributeError:
+        pass
+    matches = re.search("\"hls\": \"(.*)\"", content)
     hls = matches.group(1)
     
     headers.update({'Referer':iframe2})
 
     li = xbmcgui.ListItem(path=hls+'|'+urlencode(headers))
-    li.setProperty('inputstreamaddon','inputstream.adaptive')
+    li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+    li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.manifest_type','hls')
     xbmcplugin.setResolvedUrl(_handle, True, li)

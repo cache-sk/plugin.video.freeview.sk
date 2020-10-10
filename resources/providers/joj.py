@@ -6,8 +6,10 @@
 import xbmcgui
 import xbmcplugin
 
-from urllib import urlencode
-
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
 
 CHANNELS = {
     'joj':{'src':'https://nn.geo.joj.sk/live/joj-index.m3u8','referer':'https://live.joj.sk/'},
@@ -35,6 +37,7 @@ def play(_handle, _addon, params):
         xbmcplugin.setResolvedUrl(_handle, True, li)
     else:
         li = xbmcgui.ListItem(path=channel['src']+'|'+urlencode(headers))
-        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+        li.setProperty('inputstream','inputstream.adaptive') #kodi 19
         li.setProperty('inputstream.adaptive.manifest_type','hls')
         xbmcplugin.setResolvedUrl(_handle, True, li)

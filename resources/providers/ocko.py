@@ -6,7 +6,10 @@
 import xbmcgui
 import xbmcplugin
 
-from urllib import urlencode
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
 
 
 CHANNELS = {
@@ -28,11 +31,13 @@ def play(_handle, _addon, params):
 
     if prefer_mpd:
         li = xbmcgui.ListItem(path=channel['mpd']+'|'+urlencode(HEADERS))
-        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+        li.setProperty('inputstream','inputstream.adaptive') #kodi 19
         li.setProperty('inputstream.adaptive.manifest_type','mpd')
         xbmcplugin.setResolvedUrl(_handle, True, li)
     else:
         li = xbmcgui.ListItem(path=channel['hls']+'|'+urlencode(HEADERS))
-        li.setProperty('inputstreamaddon','inputstream.adaptive')
+        li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
+        li.setProperty('inputstream','inputstream.adaptive') #kodi 19
         li.setProperty('inputstream.adaptive.manifest_type','hls')
         xbmcplugin.setResolvedUrl(_handle, True, li)

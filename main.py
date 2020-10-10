@@ -16,16 +16,25 @@ import m3u
 import skylink
 import datetime
 
-from urlparse import parse_qsl
-from urllib import urlencode
 from importlib import import_module
+
+try:
+    from urllib import urlencode
+    from urlparse import parse_qsl
+except ImportError:
+    from urllib.parse import urlencode
+    from urllib.parse import parse_qsl, urlparse
 
 sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers'))
 
 _url = sys.argv[0]
 _handle = int(sys.argv[1])
 _addon = xbmcaddon.Addon()
-_profile = xbmc.translatePath(_addon.getAddonInfo('profile')).decode("utf-8")
+_profile = xbmc.translatePath(_addon.getAddonInfo('profile'))
+try:
+    _profile = _profile.decode("utf-8")
+except AttributeError:
+    pass
 
 PLAYLIST = 'special://home/addons/'+_addon.getAddonInfo('id')+'/resources/playlist.m3u'
 
@@ -81,6 +90,7 @@ def setpisc():
     pisc.setSetting('logoPathType','1')
     pisc.setSetting('logoBaseUrl','')
     pisc.setSetting('logoFromEpg','1')
+    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), 'Hotovo')
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
 
@@ -105,6 +115,7 @@ def setpiscgenepg():
     pisc.setSetting('epgPathType','0')
     pisc.setSetting('epgTimeShift','0')
     pisc.setSetting('epgTSOverride','false')
+    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), 'Hotovo')
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
 def regenepg():
