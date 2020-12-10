@@ -58,22 +58,24 @@ def play(_handle, _addon, params):
         mpd = None
         for src in sources:
             if src['type'] == "application/dash+xml":
-                mpd = src['src']
+                mpd = src['src'].replace('\n','')
             elif src['type'] == "application/x-mpegurl":
-                hls = src['src']
+                hls = src['src'].replace('\n','')
         
-        headers = '|' + urlencode(HEADERS)
+        headers = urlencode(HEADERS)
 
         if (prefer_mpd or hls is None) and mpd is not None:
-            li = xbmcgui.ListItem(path=mpd+headers)
+            li = xbmcgui.ListItem(path=mpd + '|' +headers)
             li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
             li.setProperty('inputstream','inputstream.adaptive') #kodi 19
+            li.setProperty('inputstream.adaptive.stream_headers',headers)
             li.setProperty('inputstream.adaptive.manifest_type','mpd')
             xbmcplugin.setResolvedUrl(_handle, True, li)
         elif hls is not None:
-            li = xbmcgui.ListItem(path=hls+headers)
+            li = xbmcgui.ListItem(path=hls + '|' +headers)
             li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
             li.setProperty('inputstream','inputstream.adaptive') #kodi 19
+            li.setProperty('inputstream.adaptive.stream_headers',headers)
             li.setProperty('inputstream.adaptive.manifest_type','hls')
             xbmcplugin.setResolvedUrl(_handle, True, li)
         else:
