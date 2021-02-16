@@ -63,6 +63,14 @@ msgctxt "#30092"
 msgid "EPG zo Skylink-u vygenerované"
 msgstr "EPG zo Skylink-u vygenerované"
 
+msgctxt "#30093"
+msgid "Interval generovania v hodinách"
+msgstr "Interval generovania v hodinách"
+
+msgctxt "#30094"
+msgid "Koľko dní generovať"
+msgstr "Koľko dní generovať"
+
 msgctxt "#30100"
 msgid "Markíza"
 msgstr "Markíza"

@@ -24,7 +24,7 @@ class SkylinkMonitor(xbmc.Monitor):
         except AttributeError:
             pass
         ts = self._addon.getSetting('genepg_next_update')
-        self._next_update = datetime.datetime.now() if ts == '' else datetime.datetime.fromtimestamp(float(ts))
+        self._next_update = datetime.datetime.fromtimestamp(0) if ts == '' else datetime.datetime.fromtimestamp(float(ts))
         #cleanup
         if os.path.exists(self._profile):
             files_to_remove = [f for f in os.listdir(self._profile) if os.path.isfile(os.path.join(self._profile, f)) and f.endswith('.work.xml')]
@@ -42,12 +42,8 @@ class SkylinkMonitor(xbmc.Monitor):
     def onSettingsChanged(self):
         self._addon = xbmcaddon.Addon()  # refresh for updated settings!
         if not self.abortRequested():
-            try:
-                if self.update():
-                    self.notify(self._addon.getLocalizedString(30092))
-            except Exception as e:
-                traceback.print_exc()
-                self.notify(str(e), True)
+            self._next_update = datetime.datetime.fromtimestamp(0)
+            self.tick()
 
     def schedule_next(self, seconds):
         dt = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
@@ -71,7 +67,7 @@ class SkylinkMonitor(xbmc.Monitor):
             file.close()    
         channels = m3u.process(m3u_data)
         now = datetime.datetime.now()
-        epg = skylink.get_epg(channels, now)
+        epg = skylink.get_epg(channels, now, int(self._addon.getSetting('gen_days')))
         skylink.generate_xmltv(channels,epg,workpath)
         if os.path.isfile(path):
             os.unlink(path)
@@ -82,8 +78,9 @@ class SkylinkMonitor(xbmc.Monitor):
     def tick(self):
         if datetime.datetime.now() > self._next_update:
             try:
-                self.schedule_next(12 * 60 * 60)
-                self.update()
+                self.schedule_next(int(self._addon.getSetting('gen_delay')) * 60 * 60)
+                if self.update():
+                    self.notify(self._addon.getLocalizedString(30092))
             except Exception as e:
                 traceback.print_exc()
                 self.notify(str(e), True)
