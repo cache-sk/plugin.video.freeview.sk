@@ -35,7 +35,10 @@ class SkylinkMonitor(xbmc.Monitor):
         print('freeview service destroyed')
 
     def notify(self, text, error=False):
-        text = text.encode("utf-8") if type(text) is unicode else text
+        try:
+            text = text.encode("utf-8") if type(text) is unicode else text
+        except:
+            pass
         icon = 'DefaultIconError.png' if error else ''
         xbmc.executebuiltin('Notification("%s","%s",5000,%s)' % (self._addon.getAddonInfo('name'), text, icon))
 
