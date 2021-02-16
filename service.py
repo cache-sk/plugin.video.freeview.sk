@@ -71,7 +71,7 @@ class SkylinkMonitor(xbmc.Monitor):
             file.close()    
         channels = m3u.process(m3u_data)
         now = datetime.datetime.now()
-        epg = skylink.get_epg(channels)
+        epg = skylink.get_epg(channels, now)
         skylink.generate_xmltv(channels,epg,workpath)
         if os.path.isfile(path):
             os.unlink(path)

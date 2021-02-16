@@ -41,7 +41,7 @@ def tidy_epg(epg_info):
 def ts(dt):
     return int(time.mktime(dt.timetuple())) * 1000
 
-def get_epg(channels, from_date=datetime.datetime.now(), days=7, recalculate=True):
+def get_epg(channels, from_date, days=7, recalculate=True):
 
     ids = ''
 
