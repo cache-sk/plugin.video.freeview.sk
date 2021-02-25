@@ -71,7 +71,7 @@ def extract():
             xbmcvfs.copy(PLAYLIST, destination + 'playlist.m3u')
             xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30900))
         except Exception as e:
-            xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30901), str(e))
+            xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30901) + "\n" + str(e))
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
 def setpisc():
