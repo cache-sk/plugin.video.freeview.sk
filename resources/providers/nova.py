@@ -11,13 +11,15 @@ try:
 except ImportError:
     from urllib.parse import urlencode
 
+##### NOTE - dokial nepridem na to ako obist geolokaciu, tak nefunkcne!
+
 
 CHANNELS = {
-    'nova':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_avod/playlist.m3u8'},
-    'nova2':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_2_avod/playlist.m3u8'},
-    'cinema':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_cinema_avod/playlist.m3u8'},
-    'action':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_action_avod/playlist.m3u8'},
-    'gold':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_gold_avod/playlist.m3u8'}
+    #'nova':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_avod/playlist.m3u8'},
+    #'nova2':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_2_avod/playlist.m3u8'},
+    #'cinema':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_cinema_avod/playlist.m3u8'},
+    #'action':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_action_avod/playlist.m3u8'},
+    #'gold':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_gold_avod/playlist.m3u8'}
 }
 
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
