@@ -16,7 +16,8 @@ CHANNELS = {
     'dvojka':2,
     'trojka':3,
     'online':4,
-    'nrsr':5
+    'nrsr':5,
+    'rtvs':6
 }
 
 ALTERNATIVE = {

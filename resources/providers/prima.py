@@ -15,7 +15,7 @@ except ImportError:
 
 PROXY_BASE = "http://p.xf.cz" #TODO - to settings?
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
-CHANNELS = ['prima','love','krimi','max','cool','zoom']
+CHANNELS = ['prima','love','krimi','max','cool','zoom','star','show']
 
 
 def playcnn(_handle, _addon, params):

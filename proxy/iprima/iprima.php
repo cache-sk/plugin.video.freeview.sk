@@ -34,7 +34,7 @@
 		$channel = $isTest ? $CHANNELS["prima"] : $CHANNELS[$_GET["ch"]];
 		$name = $isTest ? "test" : $_GET["ch"];
 
-		$options = array();
+		$options = array("verify" => false);
 		$headers = array();
 		$session = new Requests_Session(null, $headers, array(), $options);
 		$session->useragent = $UA;
@@ -42,10 +42,10 @@
 		$session->headers['Referer'] = $channel[0];
 		$response = $session->get($channel[1]);
 		$data = $response->body;
-		preg_match_all('/src: \'http(.*).m3u8\',/', $data, $match);
+		preg_match_all('/"url" : "http(.*).m3u8",/', $data, $match);
 		$playlist = "http" . $match[1][0] . ".m3u8";
 		
-		$options = array();
+		$options = array("verify" => false);
 		$headers = array();
 		$session = new Requests_Session(null, $headers, array(), $options);
 		$session->useragent = $UA;
@@ -88,7 +88,7 @@
 		$playlist_prefix = substr($playlist, 0, strrpos( $playlist, '/'));
 		require_once './Requests.php';
 		Requests::register_autoloader();
-		$options = array();
+		$options = array("verify" => false);
 		$headers = array();
 		$session = new Requests_Session(null, $headers, array(), $options);
 		$session->useragent = $UA;
@@ -131,7 +131,7 @@
 		$crypto = urldecode($_GET["crypto"]);
 		require_once './Requests.php';
 		Requests::register_autoloader();
-		$options = array();
+		$options = array("verify" => false);
 		$headers = array();
 		$session = new Requests_Session(null, $headers, array(), $options);
 		$session->useragent = $UA;
