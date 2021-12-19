@@ -43,8 +43,10 @@ def play(_handle, _addon, params):
     hls = matches.group(1)
     hls = hls.replace('\/','/')
 
-    li = xbmcgui.ListItem(path=hls+'|'+urlencode(HEADERS))
+    uheaders = urlencode(headers)
+    li = xbmcgui.ListItem(path=hls+'|'+uheaders)
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
+    li.setProperty('inputstream.adaptive.stream_headers',uheaders)
     li.setProperty('inputstream.adaptive.manifest_type','hls')
     xbmcplugin.setResolvedUrl(_handle, True, li)

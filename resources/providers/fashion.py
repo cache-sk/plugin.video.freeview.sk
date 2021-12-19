@@ -7,6 +7,12 @@ import xbmcgui
 import xbmcplugin
 import requests.cookies
 
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
+
 CHANNELS = {
     'fashion':'http://lb.streaming.sk/fashiontv/stream/playlist.m3u8'
 }
@@ -18,7 +24,7 @@ def play(_handle, _addon, params):
     if not channel in CHANNELS:
         raise #TODO
 
-    li = xbmcgui.ListItem(path=channel+'|'+urlencode(HEADERS))
+    li = xbmcgui.ListItem(path=CHANNELS[channel]+'|'+urlencode(HEADERS))
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.manifest_type','hls')
