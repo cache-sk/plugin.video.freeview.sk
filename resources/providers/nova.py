@@ -5,6 +5,8 @@
 
 import xbmcgui
 import xbmcplugin
+import requests.cookies
+import re
 
 try:
     from urllib import urlencode
@@ -15,14 +17,11 @@ except ImportError:
 
 
 CHANNELS = {
-    #'nova':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_avod/playlist.m3u8'},
-    #'nova2':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_2_avod/playlist.m3u8'},
-    #'cinema':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_cinema_avod/playlist.m3u8'},
-    #'action':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_action_avod/playlist.m3u8'},
-    #'gold':{'hls':'https://nova-live.ssl.cdn.cra.cz/channels/nova_gold_avod/playlist.m3u8'}
+    'novafun':'https://media.cms.nova.cz/embed/nova-fun-live?autoplay=1',
+    'novalady':'https://media.cms.nova.cz/embed/nova-lady-live?autoplay=1'
 }
 
-HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
+HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','referer':'https://media.cms.nova.cz/'}
 
 def play(_handle, _addon, params):
     channel = params['channel']
@@ -31,7 +30,20 @@ def play(_handle, _addon, params):
 
     channel = CHANNELS[channel]
 
-    li = xbmcgui.ListItem(path=channel['hls']+'|'+urlencode(HEADERS))
+    session = requests.Session()
+    headers = {}
+    headers.update(HEADERS)
+    response = session.get(channel, headers=headers)
+    content = response.content
+    try:
+        content = content.decode('utf-8')
+    except AttributeError:
+        pass
+    matches = re.search('{"tracks":{"HLS":\[{"src":"([^"]*)","lang":"cze","type":"application', content)
+    hls = matches.group(1)
+    hls = hls.replace('\/','/')
+
+    li = xbmcgui.ListItem(path=hls+'|'+urlencode(HEADERS))
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.manifest_type','hls')
