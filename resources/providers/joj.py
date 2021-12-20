@@ -21,7 +21,8 @@ CHANNELS = {
     'plus':{'base':'https://plus.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
     'wau':{'base':'https://wau.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
     #'jojko':{'base':'https://jojko.joj.sk/live'}, #??? po zmene nemaju live stream jojka
-    'family':{'base':'http://jojfamily.blesk.cz/live', 'iframe':'https://media.joj.sk/', 'fget':True}
+    'family':{'base':'http://jojfamily.blesk.cz/live', 'iframe':'https://media.joj.sk/', 'fget':True},
+    'jojsport':{'direct':'https://live.cdn.joj.sk/live/hls/rik-540.m3u8'}
 }
 
 FGET = "http://p.xf.cz/fget.php?url="
@@ -41,44 +42,48 @@ def play(_handle, _addon, params):
     #use_backup = xbmcplugin.getSetting(_handle, 'jojkobackup') == 'true'
     
     channel = CHANNELS[channel]
-    
-    session = requests.Session()
-    headers = {}
-    headers.update(HEADERS)
-    response = session.get(channel['base'], headers=headers)
-    html = BeautifulSoup(response.content, features="html.parser")
-    
-    player = None
-    items = html.find_all('iframe',{},True)
-    if len(items) > 0:
-        for iframe in items:
-            if channel['iframe'] in iframe['src']:
-                player = iframe['src']
-                break
-    else:
-        return brexit(_addon, _handle, 'iframe')
 
-    if player is None:
-        return brexit(_addon, _handle, 'iframe')
-        
-    if channel['fget']:
-        #TODO - sooo lazy..
-        response = session.get(FGET+quote(player), headers=headers)
+    if "direct" in channel:
+        hls = channel["direct"]
+        headers = HEADERS
     else:
-        headers = {'Referer':channel['base']}
+        session = requests.Session()
+        headers = {}
         headers.update(HEADERS)
-        response = session.get(player, headers=headers)
-    
-    content = response.content
-    try:
-        content = content.decode('utf-8')
-    except AttributeError:
-        pass
-    matches = re.search('"hls": "(.*)"', content)
-    hls = matches.group(1)
-    
-    headers = {'Referer':channel['iframe'], 'Origin':channel['iframe']}
-    headers.update(HEADERS)
+        response = session.get(channel['base'], headers=headers)
+        html = BeautifulSoup(response.content, features="html.parser")
+        
+        player = None
+        items = html.find_all('iframe',{},True)
+        if len(items) > 0:
+            for iframe in items:
+                if channel['iframe'] in iframe['src']:
+                    player = iframe['src']
+                    break
+        else:
+            return brexit(_addon, _handle, 'iframe')
+
+        if player is None:
+            return brexit(_addon, _handle, 'iframe')
+            
+        if channel['fget']:
+            #TODO - sooo lazy..
+            response = session.get(FGET+quote(player), headers=headers)
+        else:
+            headers = {'Referer':channel['base']}
+            headers.update(HEADERS)
+            response = session.get(player, headers=headers)
+        
+        content = response.content
+        try:
+            content = content.decode('utf-8')
+        except AttributeError:
+            pass
+        matches = re.search('"hls": "(.*)"', content)
+        hls = matches.group(1)
+        
+        headers = {'Referer':channel['iframe'], 'Origin':channel['iframe']}
+        headers.update(HEADERS)
 
     li = xbmcgui.ListItem(path=hls+'|'+urlencode(headers))
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18

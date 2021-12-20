@@ -17,7 +17,8 @@ CHANNELS = {
     'trojka':3,
     'online':4,
     'nrsr':5,
-    'rtvs':6
+    'rtvs':6,
+    'sport':15
 }
 
 ALTERNATIVE = {

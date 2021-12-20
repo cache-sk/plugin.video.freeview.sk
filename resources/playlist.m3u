@@ -5,6 +5,8 @@ plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
 #EXTINF:0 tvg-id="2458840320" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/trojka.png" tvg-name="Trojka",Trojka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=trojka
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/sport.png" tvg-name="ŠPORT",ŠPORT
+plugin://plugin.video.freeview.sk/?provider=rtvs&channel=sport
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Online",RTVS Online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Live",RTVS Live
@@ -17,6 +19,8 @@ plugin://plugin.video.freeview.sk/?provider=joj&channel=joj
 plugin://plugin.video.freeview.sk/?provider=joj&channel=plus
 #EXTINF:0 tvg-id="2458735936" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/wau.png" tvg-name="WAU",WAU
 plugin://plugin.video.freeview.sk/?provider=joj&channel=wau
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojsport.png" tvg-name="JOJ Šport",JOJ Šport
+plugin://plugin.video.freeview.sk/?provider=joj&channel=jojsport
 #EXTINF:0 tvg-id="344823488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/family.png" tvg-name="JOJ Family",JOJ Family
 plugin://plugin.video.freeview.sk/?provider=joj&channel=family
 #EXTINF:0 tvg-id="2458739584" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojko.png" tvg-name="Jojko",Jojko
@@ -43,18 +47,18 @@ plugin://plugin.video.freeview.sk/?provider=ct&channel=ctdart
 #plugin://plugin.video.freeview.sk/?provider=ct&channel=ctd
 #EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctart.png" tvg-name="ČT art",ČT art
 #plugin://plugin.video.freeview.sk/?provider=ct&channel=ctart
-#EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova.png" tvg-name="Nova",Nova
+#EXTINF:0 tvg-id="344805056" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nova.png" tvg-name="Nova",Nova
 plugin://plugin.video.freeview.sk/?provider=nova&channel=nova
 #EXTINF:0 tvg-id="344805504" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novafun.png" tvg-name="Nova Fun",Nova Fun
 plugin://plugin.video.freeview.sk/?provider=nova&channel=novafun
-#EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
-plugin://plugin.video.freeview.sk/?provider=nova&channel=novagold
-#EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novaaction.png" tvg-name="Nova Action",Nova Action
+#EXTINF:0 tvg-id="344805312" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novacinema.png" tvg-name="Nova Cinema",Nova Cinema
+plugin://plugin.video.freeview.sk/?provider=nova&channel=novacinema
+#EXTINF:0 tvg-id="344805376" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novaaction.png" tvg-name="Nova Action",Nova Action
 plugin://plugin.video.freeview.sk/?provider=nova&channel=novaaction
-##EXTINF:0 tvg-id="" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novacinema.png" tvg-name="Nova Cinema",Nova Cinema
-#plugin://plugin.video.freeview.sk/?provider=nova&channel=cinema
-#EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novalady.png" tvg-name="Nova Lady",Nova Lady
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novalady.png" tvg-name="Nova Lady",Nova Lady
 plugin://plugin.video.freeview.sk/?provider=nova&channel=novalady
+#EXTINF:0 tvg-id="344805440" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
+plugin://plugin.video.freeview.sk/?provider=nova&channel=novagold
 #EXTINF:0 tvg-id="344805120" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/prima.png" tvg-name="Prima",Prima
 plugin://plugin.video.freeview.sk/?provider=prima&channel=prima
 #EXTINF:0 tvg-id="344812416" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primacool.png" tvg-name="Prima Cool",Prima Cool
