@@ -18,7 +18,8 @@ except ImportError:
 CHANNELS = {
     'markiza':"https://videoarchiv.markiza.sk/live/1-markiza",
     'doma':"https://videoarchiv.markiza.sk/live/3-doma",
-    'dajto':"https://videoarchiv.markiza.sk/live/2-dajto"
+    'dajto':"https://videoarchiv.markiza.sk/live/2-dajto",
+    'krimi':"https://videoarchiv.markiza.sk/live/22-krimi"
 }
 
 #get https://moja.markiza.sk/

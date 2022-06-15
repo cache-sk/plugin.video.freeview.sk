@@ -14,7 +14,8 @@ except ImportError:
 CHANNELS = {
     'jednotka':1,
     'dvojka':2,
-    'trojka':3,
+#    'trojka':3,
+    '24':3,
     'online':4,
     'nrsr':5,
     'rtvs':6,

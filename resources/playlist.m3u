@@ -4,7 +4,9 @@ plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
 #EXTINF:0 tvg-id="2458735552" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dvojka.png" tvg-name="Dvojka",Dvojka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
 #EXTINF:0 tvg-id="2458840320" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/trojka.png" tvg-name="Trojka",Trojka
-plugin://plugin.video.freeview.sk/?provider=rtvs&channel=trojka
+#plugin://plugin.video.freeview.sk/?provider=rtvs&channel=trojka
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/24.png" tvg-name=":24",:24
+plugin://plugin.video.freeview.sk/?provider=rtvs&channel=24
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/sport.png" tvg-name="ŠPORT",ŠPORT
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=sport
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Online",RTVS Online
@@ -31,6 +33,8 @@ plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
 #EXTINF:0 tvg-id="2458735872" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dajto.png" tvg-name="Dajto",Dajto
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/krimi.png" tvg-name="Krimi",Krimi
+plugin://plugin.video.freeview.sk/?provider=markiza&channel=krimi
 #EXTINF:0 tvg-id="2457865600" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ta3.png" tvg-name="TA3",TA3
 plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
 ##EXTINF:0 tvg-id="344804928" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct1.png" tvg-name="ČT1",ČT1
