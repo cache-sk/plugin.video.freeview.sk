@@ -22,7 +22,8 @@ CHANNELS = {
     'wau':{'base':'https://wau.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
     #'jojko':{'base':'https://jojko.joj.sk/live'}, #??? po zmene nemaju live stream jojka
     'family':{'base':'http://jojfamily.blesk.cz/live', 'iframe':'https://media.joj.sk/', 'fget':True},
-    'jojsport':{'direct':'https://live.cdn.joj.sk/live/hls/rik-540.m3u8'}
+    'joj24':{'base':'https://joj24.noviny.sk/', 'iframe':'https://media.joj.sk/', 'fget':False}
+    #'jojsport':{'direct':'https://live.cdn.joj.sk/live/hls/rik-540.m3u8'}
 }
 
 FGET = "http://p.xf.cz/fget.php?url="
