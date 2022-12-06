@@ -8,6 +8,7 @@ import xbmcplugin
 import requests.cookies
 from bs4 import BeautifulSoup
 import re
+import random
 
 try:
     from urllib import urlencode
@@ -20,10 +21,24 @@ CHANNELS = {
     'joj':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False},
     'plus':{'base':'https://plus.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
     'wau':{'base':'https://wau.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
-    #'jojko':{'base':'https://jojko.joj.sk/live'}, #??? po zmene nemaju live stream jojka
     'family':{'base':'http://jojfamily.blesk.cz/live', 'iframe':'https://media.joj.sk/', 'fget':True},
     'joj24':{'base':'https://joj24.noviny.sk/', 'iframe':'https://media.joj.sk/', 'fget':False}
-    #'jojsport':{'direct':'https://live.cdn.joj.sk/live/hls/rik-540.m3u8'}
+}
+
+JOJPLAY = { #mpd alt like https://st02-1.iptv.joj.sk/101-tv-pc.mpd
+    'CHANNELS':{
+        'joj':'101-tv-pc.m3u8',
+        'plus':'102-tv-pc.m3u8',
+        'wau':'103-tv-pc.m3u8',
+        'jojko':'104-tv-pc.m3u8',
+        'jojcinema':'105-tv-pc.m3u8',
+        'csfilm':'106-tv-pc.m3u8',
+        'cshistory':'107-tv-pc.m3u8',
+        'csmystery':'108-tv-pc.m3u8',
+        'jojsport':'110-tv-pc.m3u8',
+        'joj24':'111-tv-pc.m3u8'
+    },
+    'BASE': ['https://st01-1.iptv.joj.sk/','https://st02-1.iptv.joj.sk/','https://st03-1.iptv.joj.sk/']
 }
 
 FGET = "http://p.xf.cz/fget.php?url="
@@ -35,15 +50,7 @@ def brexit(_addon, _handle, word):
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
     return False
 
-def play(_handle, _addon, params):
-    channel = params['channel']
-    if not channel in CHANNELS:
-        raise #TODO
-
-    #use_backup = xbmcplugin.getSetting(_handle, 'jojkobackup') == 'true'
-    
-    channel = CHANNELS[channel]
-
+def playFromPage(channel):
     if "direct" in channel:
         hls = channel["direct"]
         headers = HEADERS
@@ -86,7 +93,25 @@ def play(_handle, _addon, params):
         headers = {'Referer':channel['iframe'], 'Origin':channel['iframe']}
         headers.update(HEADERS)
 
-    li = xbmcgui.ListItem(path=hls+'|'+urlencode(headers))
+    return {'hls':hls, 'headers':headers}
+
+def playJojPlay(channel):
+    return {'hls':random.choice(JOJPLAY["BASE"]) + channel,'headers':HEADERS}
+
+def play(_handle, _addon, params):
+    channel = params['channel']
+    if not channel in CHANNELS and not channel in JOJPLAY['CHANNELS']:
+        raise #TODO
+
+    prefer_jojplay = xbmcplugin.getSetting(_handle, 'prefer_jojplay') == 'true'
+
+    data = (
+        playJojPlay(JOJPLAY['CHANNELS'][channel]) if channel in JOJPLAY['CHANNELS'] and prefer_jojplay else 
+        playFromPage(CHANNELS[channel]) if channel in CHANNELS else 
+        playJojPlay(JOJPLAY['CHANNELS'][channel])
+    )
+    
+    li = xbmcgui.ListItem(path=data['hls']+'|'+urlencode(data['headers']))
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.manifest_type','hls')

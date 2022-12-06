@@ -128,8 +128,8 @@ msgid "Joj"
 msgstr "Joj"
 
 msgctxt "#30141"
-msgid "Jojko backup stream"
-msgstr "Jojko backup stream"
+msgid "Preferuj JojPlay streamy"
+msgstr "Preferuj JojPlay streamy"
 
 msgctxt "#30900"
 msgid "Playlist bol skopírovaný"

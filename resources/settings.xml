@@ -21,7 +21,7 @@
         <setting label="30131" type="bool" id="retroparse" default="true"/>
         <setting label="30132" type="bool" id="retroalt" default="true"/>
     </category>
-    <!--category label="30140">
-        <setting label="30141" type="bool" id="jojkobackup" default="false"/>
-    </category-->
+    <category label="30140">
+        <setting label="30141" type="bool" id="prefer_jojplay" default="true"/>
+    </category>
 </settings>
