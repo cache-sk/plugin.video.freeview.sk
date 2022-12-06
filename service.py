@@ -10,6 +10,11 @@ import traceback
 import string
 import random
 
+try:
+    from xbmc import translatePath
+except ImportError:
+    from xbmcvfs import translatePath
+
 class SkylinkMonitor(xbmc.Monitor):
     _addon = None
     _profile = ''
@@ -18,7 +23,7 @@ class SkylinkMonitor(xbmc.Monitor):
     def __init__(self):
         xbmc.Monitor.__init__(self)
         self._addon = xbmcaddon.Addon()
-        self._profile = xbmc.translatePath(self._addon.getAddonInfo('profile'))
+        self._profile = translatePath(self._addon.getAddonInfo('profile'))
         try:
             self._profile = self._profile.decode("utf-8")
         except AttributeError:
@@ -65,7 +70,7 @@ class SkylinkMonitor(xbmc.Monitor):
         workpath = os.path.join(self._profile, get_random_string(8) + 'work.epg.xml')
         path = os.path.join(self._profile, 'epg.xml')
 
-        with io.open(xbmc.translatePath(_playlist), 'r', encoding='utf8') as file:
+        with io.open(translatePath(_playlist), 'r', encoding='utf8') as file:
             m3u_data = file.read()
             file.close()    
         channels = m3u.process(m3u_data)

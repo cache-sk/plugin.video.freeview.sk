@@ -25,12 +25,17 @@ except ImportError:
     from urllib.parse import urlencode
     from urllib.parse import parse_qsl, urlparse
 
+try:
+    from xbmc import translatePath
+except ImportError:
+    from xbmcvfs import translatePath
+
 sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers'))
 
 _url = sys.argv[0]
 _handle = int(sys.argv[1])
 _addon = xbmcaddon.Addon()
-_profile = xbmc.translatePath(_addon.getAddonInfo('profile'))
+_profile = translatePath(_addon.getAddonInfo('profile'))
 try:
     _profile = _profile.decode("utf-8")
 except AttributeError:
@@ -42,7 +47,7 @@ def get_url(**kwargs):
     return '{0}?{1}'.format(_url, urlencode(kwargs, 'utf-8'))
 
 def playlist():
-    with io.open(xbmc.translatePath(PLAYLIST), 'r', encoding='utf8') as file:
+    with io.open(translatePath(PLAYLIST), 'r', encoding='utf8') as file:
         m3u_data = file.read()
         file.close()    
     channels = m3u.process(m3u_data)
@@ -85,7 +90,7 @@ def setpisc():
         xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
         return
     pisc.setSetting('m3uPathType','0')
-    pisc.setSetting('m3uPath',xbmc.translatePath(PLAYLIST))
+    pisc.setSetting('m3uPath',translatePath(PLAYLIST))
     pisc.setSetting('startNum','1')
     pisc.setSetting('logoPathType','1')
     pisc.setSetting('logoBaseUrl','')
