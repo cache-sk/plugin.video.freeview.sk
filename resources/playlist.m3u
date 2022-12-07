@@ -5,9 +5,9 @@ plugin://plugin.video.freeview.sk/?provider=rtvs&channel=jednotka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
 #EXTINF:0 tvg-id="2458840320" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/trojka.png" tvg-name="Trojka",Trojka
 #plugin://plugin.video.freeview.sk/?provider=rtvs&channel=trojka
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/24.png" tvg-name=":24",:24
+#EXTINF:0 tvg-id="2458840320" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/24.png" tvg-name=":24",:24
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=24
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/sport.png" tvg-name="ŠPORT",ŠPORT
+#EXTINF:0 tvg-id="2458865536" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/sport.png" tvg-name="ŠPORT",ŠPORT
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=sport
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="RTVS Online",RTVS Online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
@@ -21,21 +21,21 @@ plugin://plugin.video.freeview.sk/?provider=joj&channel=joj
 plugin://plugin.video.freeview.sk/?provider=joj&channel=plus
 #EXTINF:0 tvg-id="2458735936" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/wau.png" tvg-name="WAU",WAU
 plugin://plugin.video.freeview.sk/?provider=joj&channel=wau
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojsport.png" tvg-name="JOJ Šport",JOJ Šport
+#EXTINF:0 tvg-id="2458874496" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojsport.png" tvg-name="JOJ Šport",JOJ Šport
 plugin://plugin.video.freeview.sk/?provider=joj&channel=jojsport
 #EXTINF:0 tvg-id="344823488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/family.png" tvg-name="JOJ Family",JOJ Family
 plugin://plugin.video.freeview.sk/?provider=joj&channel=family
 #EXTINF:0 tvg-id="2458739584" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojko.png" tvg-name="Jojko",Jojko
 plugin://plugin.video.freeview.sk/?provider=joj&channel=jojko
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/joj24.png" tvg-name="JOJ 24",JOJ 24
+#EXTINF:0 tvg-id="2458881472" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/joj24.png" tvg-name="JOJ 24",JOJ 24
 plugin://plugin.video.freeview.sk/?provider=joj&channel=joj24
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojcinema.png" tvg-name="JOJ Cinema",JOJ Cinema
+#EXTINF:0 tvg-id="344806784" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojcinema.png" tvg-name="JOJ Cinema",JOJ Cinema
 plugin://plugin.video.freeview.sk/?provider=joj&channel=jojcinema
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/csfilm.png" tvg-name="CS Film",CS Film
+#EXTINF:0 tvg-id="344806848" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/csfilm.png" tvg-name="CS Film",CS Film
 plugin://plugin.video.freeview.sk/?provider=joj&channel=csfilm
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/cshistory.png" tvg-name="CS History",CS History
+#EXTINF:0 tvg-id="344841792" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/cshistory.png" tvg-name="CS History",CS History
 plugin://plugin.video.freeview.sk/?provider=joj&channel=cshistory
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/csmystery.png" tvg-name="CS Mystery",CS Mystery
+#EXTINF:0 tvg-id="344809472" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/csmystery.png" tvg-name="CS Mystery",CS Mystery
 plugin://plugin.video.freeview.sk/?provider=joj&channel=csmystery
 #EXTINF:0 tvg-id="2458735616" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/markiza.png" tvg-name="Markíza",Markíza
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
@@ -43,7 +43,7 @@ plugin://plugin.video.freeview.sk/?provider=markiza&channel=markiza
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
 #EXTINF:0 tvg-id="2458735872" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/dajto.png" tvg-name="Dajto",Dajto
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/krimi.png" tvg-name="Krimi",Krimi
+#EXTINF:0 tvg-id="2458879488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/krimi.png" tvg-name="Krimi",Krimi
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=krimi
 #EXTINF:0 tvg-id="2457865600" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ta3.png" tvg-name="TA3",TA3
 plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
@@ -85,9 +85,9 @@ plugin://plugin.video.freeview.sk/?provider=prima&channel=krimi
 plugin://plugin.video.freeview.sk/?provider=prima&channel=love
 #EXTINF:0 tvg-id="344805696" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primazoom.png" tvg-name="Prima Zoom",Prima Zoom
 plugin://plugin.video.freeview.sk/?provider=prima&channel=zoom
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primastar.png" tvg-name="Prima Star",Prima Star
+#EXTINF:0 tvg-id="344939456" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primastar.png" tvg-name="Prima Star",Prima Star
 plugin://plugin.video.freeview.sk/?provider=prima&channel=star
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primashow.png" tvg-name="Prima Show",Prima Show
+#EXTINF:0 tvg-id="344946240" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primashow.png" tvg-name="Prima Show",Prima Show
 plugin://plugin.video.freeview.sk/?provider=prima&channel=show
 #EXTINF:0 tvg-id="344913920" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/cnnprimanews.png" tvg-name="CNN Prima News",CNN Prima News
 plugin://plugin.video.freeview.sk/?provider=prima&channel=cnn
