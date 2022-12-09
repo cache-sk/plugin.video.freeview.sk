@@ -33,6 +33,8 @@ BASE = "https://moja.markiza.sk/"
 AFTER = "https://moja.markiza.sk/profil"
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 
+RETRIES = 10
+
 def brexit(_addon, _handle, word):
     xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30105) + word)
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
@@ -89,12 +91,18 @@ def play(_handle, _addon, params):
         return brexit(_addon, _handle, 'iframe1')
 
     headers.update({'Referer':CHANNELS[channel]})
-    response = session.get(iframe1, headers=headers)
-    html = BeautifulSoup(response.content, features="html.parser")
-    items = html.find_all('iframe',{},True)
-    for i in items:
-        if 'media' in i['src']:
-            iframe2 = i['src']
+    
+    attempt = 0
+    iframe2 = None
+
+    while iframe2 is None and attempt < RETRIES:
+        response = session.get(iframe1, headers=headers)
+        html = BeautifulSoup(response.content, features="html.parser")
+        items = html.find_all('iframe',{},True)
+        for i in items:
+            if 'media' in i['src']:
+                iframe2 = i['src']
+
     if iframe2 is None:
         return brexit(_addon, _handle, 'iframe2')
 
