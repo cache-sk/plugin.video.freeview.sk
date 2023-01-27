@@ -102,7 +102,7 @@ def play(_handle, _addon, params):
             pDialog = xbmcgui.DialogProgress()
             pDialog.create(_addon.getAddonInfo('name'), _addon.getLocalizedString(30997))
         if attempt > 1:    
-            pDialog.update(round((attempt)*(100/RETRIES)), '')
+            pDialog.update(int(round((attempt)*(100/RETRIES))), '')
         response = session.get(iframe1, headers=headers)
         html = BeautifulSoup(response.content, features="html.parser")
         items = html.find_all('iframe',{},True)
