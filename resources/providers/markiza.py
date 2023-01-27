@@ -33,7 +33,7 @@ BASE = "https://moja.markiza.sk/"
 AFTER = "https://moja.markiza.sk/profil"
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 
-RETRIES = 10
+RETRIES = 10 #means 1 + 10
 
 def brexit(_addon, _handle, word):
     xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30105) + word)
@@ -94,15 +94,24 @@ def play(_handle, _addon, params):
     
     attempt = 0
     iframe2 = None
-
+    pDialog = None
+    
     while iframe2 is None and attempt < RETRIES:
+        attempt = attempt+1
+        if attempt == 2:
+            pDialog = xbmcgui.DialogProgress()
+            pDialog.create(_addon.getAddonInfo('name'), _addon.getLocalizedString(30997))
+        if attempt > 1:    
+            pDialog.update(round((attempt)*(100/RETRIES)), '')
         response = session.get(iframe1, headers=headers)
         html = BeautifulSoup(response.content, features="html.parser")
         items = html.find_all('iframe',{},True)
         for i in items:
             if 'media' in i['src']:
                 iframe2 = i['src']
-
+    if pDialog is not None:
+        pDialog.close()
+        
     if iframe2 is None:
         return brexit(_addon, _handle, 'iframe2')
 
