@@ -177,22 +177,12 @@ def menu():
     xbmcplugin.addDirectoryItem(_handle, get_url(action='piscsettings'), xbmcgui.ListItem(label=_addon.getLocalizedString(30005)), False)
     xbmcplugin.endOfDirectory(_handle)
 
-def geocheck():
-    try:
-        session = requests.Session()
-        response = session.get("https://ipapi.co/country/")
-        code = response.text
-        if len(code) < 4:
-            response = session.get("http://p.xf.cz/geo.php?code="+code)
-    except:
-    	pass
-
 def router(paramstring):
     try:
         params = dict(parse_qsl(paramstring))
         if params:
             if 'provider' in params:
-                geocheck()
+                skylink.get_info(_addon, xbmcgui)
                 provider = params['provider']
                 module = import_module(provider)
                 module.play(_handle, _addon, params)

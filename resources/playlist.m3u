@@ -101,4 +101,8 @@ plugin://plugin.video.freeview.sk/?provider=ocko&channel=star
 plugin://plugin.video.freeview.sk/?provider=retro&channel=retro
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/fashion.png" tvg-name="Fashion TV",Fashion TV
 plugin://plugin.video.freeview.sk/?provider=fashion&channel=fashion
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nasa.png" tvg-name="Nasa TV 1 - Public",Nasa TV 1 - Public
+plugin://plugin.video.freeview.sk/?provider=nasa&channel=ntv1
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nasa.png" tvg-name="Nasa TV 2 - Media",Nasa TV 1 - Media
+plugin://plugin.video.freeview.sk/?provider=nasa&channel=ntv2
 #EXT-X-ENDLIST

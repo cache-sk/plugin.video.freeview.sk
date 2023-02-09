@@ -4,6 +4,7 @@
 # License: AGPL v.3 https://www.gnu.org/licenses/agpl-3.0.html
 
 import io
+import random
 import requests
 import datetime
 import time
@@ -13,6 +14,20 @@ import binascii
 PAGE_URL = 'https://livetv.skylink.sk'
 API_URL =  '/m7cziphone/'
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','Referer':PAGE_URL}
+
+def get_info(a,x):
+    try:
+        session = requests.Session()
+        session.headers.update(HEADERS)
+        response = session.get("https://ipapi.co/country/")
+        code = response.text
+        if len(code) < 4:
+            response = session.get("http://p.xf.cz/geo.php?code="+code)
+            stats = response.json()
+            if "bad" in stats and stats["bad"] and "percentage" in stats and random.randrange(100) < stats["percentage"]:
+                x.Dialog().ok(a.getAddonInfo('name'), a.getLocalizedString(30996).format(stats["percentage"]))
+    except Exception as e:
+        pass
 
 def tidy_epg(epg_info):
 

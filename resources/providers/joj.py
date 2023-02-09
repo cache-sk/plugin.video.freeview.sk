@@ -21,7 +21,7 @@ CHANNELS = {
     'joj':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False},
     'plus':{'base':'https://plus.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
     'wau':{'base':'https://wau.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
-    'family':{'base':'http://jojfamily.blesk.cz/live', 'iframe':'https://media.joj.sk/', 'fget':True},
+    'family':{'base':'https://jojfamily.blesk.cz/live', 'iframe':'https://media.joj.sk/', 'fget':True},
     'joj24':{'base':'https://joj24.noviny.sk/', 'iframe':'https://media.joj.sk/', 'fget':False}
 }
 
@@ -56,6 +56,9 @@ def playFromPage(channel):
         headers = HEADERS
     else:
         session = requests.Session()
+        if channel['fget']:
+            # temporary
+            session.verify = False
         headers = {}
         headers.update(HEADERS)
         response = session.get(channel['base'], headers=headers)

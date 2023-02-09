@@ -147,9 +147,13 @@ msgctxt "#30903"
 msgid "Proces spustený, počkajte na výsledok."
 msgstr "Proces spustený, počkajte na výsledok."
 
+msgctxt "#30996"
+msgid "Tento doplnok je určený pre používateľov na slovensku. Ty patríš ku {} percentám, ktoré ho používajú mimo slovenska. Nepokaz nám to zbytočne."
+msgstr "Tento doplnok je určený pre používateľov na slovensku. Ty patríš ku {} percentám, ktoré ho používajú mimo slovenska. Nepokaz nám to zbytočne."
+
 msgctxt "#30997"
-msgid "Nepodarilo sa získať stream, skúšam opakovane. Odporúčam zaregistrovať si vlastné konto na markiza.sk a nastaviť ho v nastaveniach."
-msgstr "Nepodarilo sa získať stream, skúšam opakovane. Odporúčam zaregistrovať si vlastné konto na markiza.sk a nastaviť ho v nastaveniach."
+msgid "Nepodarilo sa prihlásiť. Odporúčam zaregistrovať si vlastné konto na markiza.sk a nastaviť ho v nastaveniach."
+msgstr "Nepodarilo sa prihlásiť. Odporúčam zaregistrovať si vlastné konto na markiza.sk a nastaviť ho v nastaveniach."
 
 msgctxt "#30998"
 msgid "Teraz Vás bude niekoľko krát žiadať o reštart Kodi. Všetko odkliknite OK a po skončení reštartujte Kodi. Pokračovať?"
