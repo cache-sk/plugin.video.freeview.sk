@@ -1,11 +1,12 @@
 # plugin.video.freeview.sk
 
+Ak chcete aktualizácie, inštalujte si doplnok z môjho repozitáru - https://github.com/cache-sk/kodirepo
+
 ![plugin.video.freeview.sk](icon.jpg)
 
 ## Kodi plugin pre Živé vysielanie slovenských TV
 
 Plugin slúži na získanie streamov voľne dostupných vysielaní televízií na Slovensku.
-
 
 Všetko sú to stanice, ktoré sa dajú pozerať na Slovensku zdarma priamo cez prehliadač, prípadne NEmajú priamo na streame zapnutú geoblokáciu a teda fungujú aj zo Slovenska, každopádne sú to všetko oficiálne retransmisie.
 
