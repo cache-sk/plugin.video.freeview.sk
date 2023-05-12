@@ -16,6 +16,8 @@ import m3u
 import skylink
 import datetime
 import requests.cookies
+import re
+import xml.etree.ElementTree as ET
 
 from importlib import import_module
 
@@ -80,6 +82,30 @@ def extract():
             xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30901) + "\n" + str(e))
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
+def newPisc(pisc):
+    ver = pisc.getAddonInfo("version").split(".")
+    return int(ver[0]) >= 20 and int(ver[1]) >= 8 
+
+def settingToListItem(path):
+    tree = ET.parse(path)
+    #root = tree.getroot()
+    name = tree.findall("//setting[@id='kodi_addon_instance_name']")[0].text
+    return xbmcgui.ListItem(label = name, path = path)
+
+def getNewPiscSettings(pisc):
+    pprofile = translatePath(pisc.getAddonInfo('profile'))
+    ppfiles = os.listdir(pprofile)
+    psettings = [settingToListItem(os.path.join(pprofile,f)) for f in ppfiles if re.search("^instance-settings-\d+.xml$", f)] #TODO os.path.isfile?
+    xmlLI = xbmcgui.Dialog().select(heading = _addon.getLocalizedString(30904), list = psettings)
+    if xmlLI == -1:
+        xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30905))
+        return None
+    return psettings[xmlLI].getPath()
+
+def setXmlValue(tree, name, value):
+    node = tree.findall("//setting[@id='"+name+"']")[0]
+    node.text = str(value)
+
 def setpisc():
     try:
         pisc = xbmcaddon.Addon('pvr.iptvsimple')
@@ -87,18 +113,37 @@ def setpisc():
         xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30010))
         xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
         return
+    
     if not xbmcgui.Dialog().yesno(_addon.getAddonInfo('name'), _addon.getLocalizedString(30998)):
         xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
         return
-    pisc.setSetting('m3uPathType','0')
-    pisc.setSetting('m3uPath',translatePath(PLAYLIST))
-    pisc.setSetting('startNum','1')
-    pisc.setSetting('logoPathType','1')
-    pisc.setSetting('logoBaseUrl','')
-    pisc.setSetting('logoFromEpg','1')
-    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), 'Hotovo')
-    xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
+    if newPisc(pisc):
+        piscProfileFile = getNewPiscSettings(pisc)
+        if piscProfileFile is not None:
+            tree = ET.parse(piscProfileFile)
+            setXmlValue(tree, 'm3uPathType','0')
+            setXmlValue(tree, 'm3uPath',translatePath(PLAYLIST))
+            setXmlValue(tree, 'startNum','1')
+            setXmlValue(tree, 'logoPathType','1')
+            setXmlValue(tree, 'logoBaseUrl','')
+            setXmlValue(tree, 'logoFromEpg','1')
+            with open(piscProfileFile, 'wb') as f:
+                tree.write(f)
+        else:
+            xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
+            return
+
+    else:
+        pisc.setSetting('m3uPathType','0')
+        pisc.setSetting('m3uPath',translatePath(PLAYLIST))
+        pisc.setSetting('startNum','1')
+        pisc.setSetting('logoPathType','1')
+        pisc.setSetting('logoBaseUrl','')
+        pisc.setSetting('logoFromEpg','1')
+
+    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30906))
+    xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
 def setpiscgenepg():
     try:
@@ -116,12 +161,28 @@ def setpiscgenepg():
 
     path = os.path.join(_profile, 'epg.xml')
 
-    pisc.setSetting('epgCache','false')
-    pisc.setSetting('epgPath',path)
-    pisc.setSetting('epgPathType','0')
-    pisc.setSetting('epgTimeShift','0')
-    pisc.setSetting('epgTSOverride','false')
-    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), 'Hotovo')
+    if newPisc(pisc):
+        piscProfileFile = getNewPiscSettings(pisc)
+        if piscProfileFile is not None:
+            tree = ET.parse(piscProfileFile)
+            setXmlValue(tree, 'epgCache','false')
+            setXmlValue(tree, 'epgPath',path)
+            setXmlValue(tree, 'epgPathType','0')
+            setXmlValue(tree, 'epgTimeShift','0')
+            setXmlValue(tree, 'epgTSOverride','false')
+            with open(piscProfileFile, 'wb') as f:
+                tree.write(f)
+        else:
+            xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
+            return
+    else:
+        pisc.setSetting('epgCache','false')
+        pisc.setSetting('epgPath',path)
+        pisc.setSetting('epgPathType','0')
+        pisc.setSetting('epgTimeShift','0')
+        pisc.setSetting('epgTSOverride','false')
+
+    xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30906))
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
 def regenepg():
@@ -136,7 +197,7 @@ def setpiscepg():
         xbmcgui.Dialog().ok(_addon.getAddonInfo('name'), _addon.getLocalizedString(30010))
         xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
         return
-
+    
     user = xbmcgui.Dialog().input(_addon.getLocalizedString(30011), '', xbmcgui.INPUT_ALPHANUM)
     email = xbmcgui.Dialog().input(_addon.getLocalizedString(30012), '', xbmcgui.INPUT_ALPHANUM)
 
@@ -149,6 +210,8 @@ def setpiscepg():
     pisc.setSetting('epgTimeShift','0')
     pisc.setSetting('epgTSOverride','false')
     pisc.setSetting('epgUrl','https://phazebox.com/epg.php?user=' + user + '&email=' + email)
+
+
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
 
 def settings():
