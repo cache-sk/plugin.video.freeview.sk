@@ -44,7 +44,7 @@ def tidy_epg(epg_info):
         return {'duration': ((a[6] & 15) << 8) + a[7], 'start': (start_in_minutes_since2012 * 60) + 1325376000}
 
     for data in epg_info:
-        if 'description' in data:
+        if 'description' in data and data['description'] is not None:
             data['description'] = data['description'].strip()
         if 'cover' in data:
             # url in web page - https://m7cz.solocoo.tv/m7cziphone/mmchan/mpimages/447x251/_hash_.jpg
@@ -146,8 +146,10 @@ html_escape_table = {
 
 
 def html_escape(text):
-    return "".join(html_escape_table.get(c, c) for c in text)
-
+    if text is not None:
+        return "".join(html_escape_table.get(c, c) for c in text)
+    return ""
+    
 def generate_xmltv(channels, epg, path):
     with io.open(path, 'w', encoding='utf8') as file:
         file.write(u'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n')
