@@ -75,7 +75,7 @@ def play(_handle, _addon, params):
         content = content.decode('utf-8')
     except AttributeError:
         pass
-    matches = re.search('{"tracks":{"HLS":\[{"src":"([^"]*)","lang":"cze","type":"application', content)
+    matches = re.search('{"sources":\[{"src":"([^"]*)","type":"application', content)
     hls = matches.group(1)
     hls = hls.replace('\/','/')
 

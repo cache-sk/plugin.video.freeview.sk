@@ -36,7 +36,8 @@ JOJPLAY = { #mpd alt like https://st02-1.iptv.joj.sk/101-tv-pc.mpd
         'cshistory':'107-tv-pc.m3u8',
         'csmystery':'108-tv-pc.m3u8',
         'jojsport':'110-tv-pc.m3u8',
-        'joj24':'111-tv-pc.m3u8'
+        'joj24':'111-tv-pc.m3u8',
+        'jojsvet':'114-tv-pc.m3u8'
     },
     'BASE': ['https://st01-1.iptv.joj.sk/','https://st02-1.iptv.joj.sk/','https://st03-1.iptv.joj.sk/']
 }

@@ -25,7 +25,9 @@ def playcnn(_handle, _addon, params):
     response = session.get('https://api.play-backend.iprima.cz/api/v1/products/id-p650443/play', headers=headers)
     data = response.json()
     if 'streamInfos' in data and data['streamInfos']:
-        li = xbmcgui.ListItem(path=data['streamInfos'][0]['url'])
+        stream = data['streamInfos'][0]['url']
+        stream = stream.replace("_lq", "") #remove lq profile
+        li = xbmcgui.ListItem(path=stream)
         li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
         li.setProperty('inputstream','inputstream.adaptive') #kodi 19
         li.setProperty('inputstream.adaptive.manifest_type','hls')

@@ -31,6 +31,8 @@ plugin://plugin.video.freeview.sk/?provider=joj&channel=jojko
 plugin://plugin.video.freeview.sk/?provider=joj&channel=joj24
 #EXTINF:0 tvg-id="344806784" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojcinema.png" tvg-name="JOJ Cinema",JOJ Cinema
 plugin://plugin.video.freeview.sk/?provider=joj&channel=jojcinema
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojsvet.png" tvg-name="JOJ Svet",JOJ Svet
+plugin://plugin.video.freeview.sk/?provider=joj&channel=jojsvet
 #EXTINF:0 tvg-id="344806848" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/csfilm.png" tvg-name="CS Film",CS Film
 plugin://plugin.video.freeview.sk/?provider=joj&channel=csfilm
 #EXTINF:0 tvg-id="344841792" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/cshistory.png" tvg-name="CS History",CS History
@@ -69,7 +71,7 @@ plugin://plugin.video.freeview.sk/?provider=nova&channel=novafun
 plugin://plugin.video.freeview.sk/?provider=nova&channel=novacinema
 #EXTINF:0 tvg-id="344805376" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novaaction.png" tvg-name="Nova Action",Nova Action
 plugin://plugin.video.freeview.sk/?provider=nova&channel=novaaction
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novalady.png" tvg-name="Nova Lady",Nova Lady
+#EXTINF:0 tvg-id="344962176" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novalady.png" tvg-name="Nova Lady",Nova Lady
 plugin://plugin.video.freeview.sk/?provider=nova&channel=novalady
 #EXTINF:0 tvg-id="344805440" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
 plugin://plugin.video.freeview.sk/?provider=nova&channel=novagold
