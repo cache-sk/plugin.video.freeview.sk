@@ -6,6 +6,11 @@
 import xbmcgui
 import xbmcplugin
 import requests
+import datetime
+
+from dateutil.parser import parse
+from dateutil.tz import tzutc, tzlocal
+
 try:
     from urllib import urlencode
 except ImportError:
@@ -83,3 +88,27 @@ def play(_handle, _addon, params):
             xbmcplugin.setResolvedUrl(_handle, True, li)
         else:
             raise #TODO
+            
+
+EPGAPI = 'https://api.rtvs.sk/json/broadcast/v1.1.4/tv/program'
+EPGHEADERS = {'X-API-KEY':'2454b377-72d1-4b4a-8e34-d693cd5f787b'}
+EPGCHANNELS = [{'id':'rtvs-liveo','channel':'4'},{'id':'rtvs-live','channel':'6'}]
+def get_epg(from_date, to_date):
+    print("yaaay")
+    session = requests.Session()
+    session.headers.update(EPGHEADERS)
+    epg = {}
+    for channel in EPGCHANNELS:
+        response = session.get(EPGAPI, params={'datemode':'now-future','channel':channel['channel']})
+        data = response.json()
+        print(data)
+        if 'data' in data and data['data']:
+            chdata = []
+            for program in data['data']:
+                print(program)
+                item = {'dtstart':parse(program['air_datetimestart']).astimezone(tzutc()), 'dtend':parse(program['air_datetimestop']).astimezone(tzutc()), 'title':program['name']}
+                if 'media' in program and program['media'] and 'images' in program['media'] and program['media']['images'] and len(program['media']['images']) > 0 and 'url' in program['media']['images'][0] and program['media']['images'][0]['url']:
+                    item['cover'] = program['media']['images'][0]['url']
+                chdata.append(item)
+            epg[channel['id']] = chdata
+    return epg

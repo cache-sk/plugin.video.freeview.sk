@@ -9,9 +9,9 @@ plugin://plugin.video.freeview.sk/?provider=rtvs&channel=dvojka
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=24
 #EXTINF:0 tvg-id="2458865536" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/sport.png" tvg-name="ŠPORT",ŠPORT
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=sport
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="Live :O",Live :O
+#EXTINF:0 tvg-id="rtvs-liveo" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="Live :O",Live :O
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="Live RTVS",Live RTVS
+#EXTINF:0 tvg-id="rtvs-live" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/rtvs.png" tvg-name="Live RTVS",Live RTVS
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=rtvs
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nrsr.png" tvg-name="Live NRSR",Live NRSR
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=nrsr

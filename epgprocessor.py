@@ -4,12 +4,17 @@
 # License: AGPL v.3 https://www.gnu.org/licenses/agpl-3.0.html
 
 import io
+import os
+import sys
 import random
 import requests
 import datetime
 import time
 import uuid
 import binascii
+from importlib import import_module
+
+sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers'))
 
 PAGE_URL = 'https://livetv.skylink.sk'
 API_URL =  '/m7cziphone/'
@@ -59,11 +64,18 @@ def ts(dt):
 def get_epg(channels, from_date, days=7, recalculate=True):
 
     ids = ''
+    providers = []
 
     for channel in channels:
-        #print(channel)
-        if u'0' != channel['id']:
-            ids = ids + channel['id'] + '!'
+        if channel['id'].isnumeric():
+            if u'0' != channel['id']:
+                # non zero number = skylink id
+                ids = ids + channel['id'] + '!'
+        else:
+            id = channel['id'].split('-')
+            # string splitted to two with - = alt rpg
+            if len(id) == 2 and not id[0] in providers:
+                providers.append(id[0])
 
     ids = ids[:-1]
 
@@ -102,6 +114,13 @@ def get_epg(channels, from_date, days=7, recalculate=True):
     for channel_id in data:
         #result.append({channel_id: tidy_epg(data[channel_id])})
         result[channel_id] = tidy_epg(data[channel_id])
+        
+    if len(providers) > 0:
+        for provider in providers:
+            module = import_module(provider)
+            provider_epg = module.get_epg(from_date, to_date)
+            print(provider_epg) 
+            result.update(provider_epg)
 
     return result
 
@@ -151,6 +170,7 @@ def html_escape(text):
     return ""
     
 def generate_xmltv(channels, epg, path):
+    now = datetime.datetime.now()
     with io.open(path, 'w', encoding='utf8') as file:
         file.write(u'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n')
         file.write(u'<tv>\n')
@@ -163,8 +183,18 @@ def generate_xmltv(channels, epg, path):
 
         for channel in epg:
             for program in epg[channel]:
-                begin = datetime.datetime.utcfromtimestamp(program['start'])
-                end = begin + datetime.timedelta(minutes=program['duration'])
+                begin = now
+                
+                if 'start' in program and program['start']:
+                    begin = datetime.datetime.utcfromtimestamp(program['start'])
+                else:
+                    begin = program['dtstart']
+                end = begin
+                if 'duration' in program and program['duration']:
+                    end = begin + datetime.timedelta(minutes=program['duration'])
+                else:
+                    end = program['dtend']
+                
                 file.write(u'<programme channel="%s" start="%s" stop="%s">\n' % (
                     channel, begin.strftime('%Y%m%d%H%M%S'), end.strftime('%Y%m%d%H%M%S')))
                 if 'title' in program:

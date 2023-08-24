@@ -56,12 +56,12 @@ msgid "Všeobecné"
 msgstr "Všeobecné"
 
 msgctxt "#30091"
-msgid "Generovanie epg zo Skylink-u"
-msgstr "Generovanie epg zo Skylink-u"
+msgid "Generovanie epg"
+msgstr "Generovanie epg"
 
 msgctxt "#30092"
-msgid "EPG zo Skylink-u vygenerované"
-msgstr "EPG zo Skylink-u vygenerované"
+msgid "EPG pre freeview vygenerované"
+msgstr "EPG pre freeview vygenerované"
 
 msgctxt "#30093"
 msgid "Interval generovania v hodinách"

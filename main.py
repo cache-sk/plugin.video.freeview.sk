@@ -13,7 +13,7 @@ import xbmcplugin
 import xbmcvfs
 import traceback
 import m3u
-import skylink
+import epgprocessor
 import datetime
 import requests.cookies
 import re
@@ -55,9 +55,9 @@ def playlist():
         file.close()    
     channels = m3u.process(m3u_data)
     now = datetime.datetime.now()
-    epg = skylink.get_epg(channels, now, 1, False)
+    epg = epgprocessor.get_epg(channels, now, 1, False)
     for channel in channels:
-        plot = skylink.generate_plot(epg[channel['id']], now, channel['name'], 4) if u'0' != channel['id'] and epg and channel['id'] in epg else u''
+        plot = epgprocessor.generate_plot(epg[channel['id']], now, channel['name'], 4) if u'0' != channel['id'] and epg and channel['id'] in epg else u''
         list_item = xbmcgui.ListItem(label=channel['name'])
         list_item.setInfo('video', {'title': channel['name'], 'plot': plot})
         list_item.setArt({'icon': channel['logo']})
@@ -245,7 +245,7 @@ def router(paramstring):
         params = dict(parse_qsl(paramstring))
         if params:
             if 'provider' in params:
-                skylink.get_info(_addon, xbmcgui)
+                epgprocessor.get_info(_addon, xbmcgui)
                 provider = params['provider']
                 module = import_module(provider)
                 module.play(_handle, _addon, params)

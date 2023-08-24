@@ -2,7 +2,7 @@ import datetime
 import time
 import io
 import os
-import skylink
+import epgprocessor
 import m3u
 import xbmc
 import xbmcaddon
@@ -15,7 +15,7 @@ try:
 except ImportError:
     from xbmcvfs import translatePath
 
-class SkylinkMonitor(xbmc.Monitor):
+class EpgMonitor(xbmc.Monitor):
     _addon = None
     _profile = ''
     _next_update = 0
@@ -75,8 +75,8 @@ class SkylinkMonitor(xbmc.Monitor):
             file.close()    
         channels = m3u.process(m3u_data)
         now = datetime.datetime.now()
-        epg = skylink.get_epg(channels, now, int(self._addon.getSetting('gen_days')))
-        skylink.generate_xmltv(channels,epg,workpath)
+        epg = epgprocessor.get_epg(channels, now, int(self._addon.getSetting('gen_days')))
+        epgprocessor.generate_xmltv(channels,epg,workpath)
         if os.path.isfile(path):
             os.unlink(path)
         os.rename(workpath, path)
@@ -104,7 +104,7 @@ def get_random_string(length):
 
 
 if __name__ == '__main__':
-    monitor = SkylinkMonitor()
+    monitor = EpgMonitor()
     while not monitor.abortRequested():
         if monitor.waitForAbort(10):
             monitor.save()

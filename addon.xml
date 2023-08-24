@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.freeview.sk" version="1.0.0" name="freeview.sk" provider-name="cache-sk">
+<addon id="plugin.video.freeview.sk" version="1.0.1" name="freeview.sk" provider-name="cache-sk">
     <requires>
         <import addon="script.module.requests" version="2.18.4"/>
         <import addon="script.module.beautifulsoup4" version="4.5.0"/>
         <import addon="inputstream.adaptive" version="2.3.13"/>
         <import addon="script.module.m3u8" version="0.3.7"/>
+        <import addon="script.module.dateutil" version="2.8.0"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
@@ -20,6 +21,9 @@
             <icon>icon.jpg</icon>
         </assets>
         <news>
+[B]1.0.1[/B]
+- niektore nove loga, premenovanie rtvs stanic
+- dodatkove epg rtvs stanic
 [B]1.0.0[/B]
 - doplnene stanice CT
 - nova stanica Lounge TV
