@@ -131,6 +131,14 @@ msgctxt "#30141"
 msgid "Preferuj JojPlay streamy"
 msgstr "Preferuj JojPlay streamy"
 
+msgctxt "#30301"
+msgid "Lounge TV ide prehrať len na Kodi Matrix a novšom."
+msgstr "Lounge TV ide prehrať len na Kodi Matrix a novšom."
+
+msgctxt "#30302"
+msgid "Lounge TV využíva Widevine DRM, preto potrebuje addon InputStream Helper."
+msgstr "Lounge TV využíva Widevine DRM, preto potrebuje addon InputStream Helper."
+
 msgctxt "#30900"
 msgid "Playlist bol skopírovaný"
 msgstr "Playlist bol skopírovaný"

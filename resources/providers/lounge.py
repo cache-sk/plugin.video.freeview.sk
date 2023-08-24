@@ -29,14 +29,14 @@ def play(_handle, _addon, params):
     matches = re.search('(\d+)*', version)
     version = int(matches.group(1))
     if version < 20:
-        xbmcgui.Dialog().ok(_addon.getAddonInfo('name'),"potrebuje 20+")
+        xbmcgui.Dialog().ok(_addon.getAddonInfo('name'),_addon.getLocalizedString(30301))
         raise
 
     #check inputstream helper
     try:
         xbmcaddon.Addon('script.module.inputstreamhelper')
     except:
-        xbmcgui.Dialog().ok(_addon.getAddonInfo('name'),"potrebuje potrebuje script.module.inputstreamhelper")
+        xbmcgui.Dialog().ok(_addon.getAddonInfo('name'),_addon.getLocalizedString(30302))
         raise 
 
     timestamp = time.time()
