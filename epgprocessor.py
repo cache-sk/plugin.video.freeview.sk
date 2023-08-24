@@ -140,13 +140,13 @@ def generate_plot(epg, now, chtitle, items_left = 3):
     for program in epg:
         start = now
         if 'start' in program and program['start']:
-            start = datetime.datetime.utcfromtimestamp(program['start'])
+            start = datetime.datetime.utcfromtimestamp(program['start']).replace(tzinfo=tzutc()).astimezone(tzlocal())
         else:
             start = program['dtstart'].astimezone(tzlocal())
         
         show_item = False
         if 'duration' in program and program['duration']:
-            show_item = start + datetime.timedelta(minutes=program['duration']) > now
+            show_item = start + datetime.timedelta(minutes=program['duration']) > nowutc
         else:
             show_item = program['dtend'] > nowutc and len(plot) == 0
         
