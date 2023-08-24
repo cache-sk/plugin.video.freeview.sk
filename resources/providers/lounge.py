@@ -30,14 +30,16 @@ def play(_handle, _addon, params):
     version = int(matches.group(1))
     if version < 20:
         xbmcgui.Dialog().ok(_addon.getAddonInfo('name'),_addon.getLocalizedString(30301))
-        raise
+        xbmcplugin.setResolvedUrl(_handle, True, xbmcgui.ListItem())
+        return
 
     #check inputstream helper
     try:
         xbmcaddon.Addon('script.module.inputstreamhelper')
     except:
         xbmcgui.Dialog().ok(_addon.getAddonInfo('name'),_addon.getLocalizedString(30302))
-        raise 
+        xbmcplugin.setResolvedUrl(_handle, True, xbmcgui.ListItem())
+        return
 
     timestamp = time.time()
     session = requests.Session()
