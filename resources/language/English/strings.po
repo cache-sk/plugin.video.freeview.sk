@@ -132,8 +132,8 @@ msgid "Preferuj JojPlay streamy"
 msgstr "Preferuj JojPlay streamy"
 
 msgctxt "#30301"
-msgid "Lounge TV ide prehrať len na Kodi Matrix a novšom."
-msgstr "Lounge TV ide prehrať len na Kodi Matrix a novšom."
+msgid "Lounge TV ide prehrať len na Kodi Nexus a novšom."
+msgstr "Lounge TV ide prehrať len na Kodi Nexus a novšom."
 
 msgctxt "#30302"
 msgid "Lounge TV využíva Widevine DRM, preto potrebuje addon InputStream Helper."
