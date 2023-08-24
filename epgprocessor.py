@@ -13,6 +13,8 @@ import time
 import uuid
 import binascii
 from importlib import import_module
+from dateutil.tz import tzutc, tzlocal
+
 
 sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers'))
 
@@ -119,7 +121,6 @@ def get_epg(channels, from_date, days=7, recalculate=True):
         for provider in providers:
             module = import_module(provider)
             provider_epg = module.get_epg(from_date, to_date)
-            print(provider_epg) 
             result.update(provider_epg)
 
     return result
@@ -135,23 +136,26 @@ def generate_plot(epg, now, chtitle, items_left = 3):
         return '[B]' + time + '[/B] ' + title + '[CR]'
 
     plot = u''
-    last_program = None
+    nowutc = now.replace(tzinfo=tzlocal())
     for program in epg:
-        start = datetime.datetime.fromtimestamp(program['start'])
-        show_item = start + datetime.timedelta(minutes=program['duration']) > now
+        start = now
+        if 'start' in program and program['start']:
+            start = datetime.datetime.utcfromtimestamp(program['start'])
+        else:
+            start = program['dtstart']
+        
+        show_item = False
+        if 'duration' in program and program['duration']:
+            show_item = start + datetime.timedelta(minutes=program['duration']) > now
+        else:
+            show_item = program['dtend'] > nowutc and len(plot) == 0
+        
         if show_item:
-            if last_program is not None:
-                last_start = datetime.datetime.fromtimestamp(last_program['start'])
-                if last_start + datetime.timedelta(minutes=last_program['duration'] + EPG_GAP) > now:
-                    plot += get_plot_line(last_start, last_program['title'])
-                    items_left -= 1
-                    last_program = None
             plot += get_plot_line(start, program['title'] if 'title' in program else chtitle)
             items_left -= 1
             if items_left == 0:
                 break
-        else:
-            last_program = program
+
     plot = plot[:-4]
     return plot
 
