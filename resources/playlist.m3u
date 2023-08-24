@@ -49,14 +49,16 @@ plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=krimi
 #EXTINF:0 tvg-id="2457865600" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ta3.png" tvg-name="TA3",TA3
 plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
-##EXTINF:0 tvg-id="344804928" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct1.png" tvg-name="ČT1",ČT1
-#plugin://plugin.video.freeview.sk/?provider=ct&channel=ct1
-##EXTINF:0 tvg-id="344804992" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct2.png" tvg-name="ČT2",ČT2
-#plugin://plugin.video.freeview.sk/?provider=ct&channel=ct2
+#EXTINF:0 tvg-id="344804928" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct1.png" tvg-name="ČT1",ČT1
+plugin://plugin.video.freeview.sk/?provider=ct&channel=ct1
+#EXTINF:0 tvg-id="344804992" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct2.png" tvg-name="ČT2",ČT2
+plugin://plugin.video.freeview.sk/?provider=ct&channel=ct2
 #EXTINF:0 tvg-id="343997248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct24.png" tvg-name="ČT24",ČT24
 plugin://plugin.video.freeview.sk/?provider=ct&channel=ct24
-##EXTINF:0 tvg-id="344812096" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctsport.png" tvg-name="ČT Sport",ČT Sport
-#plugin://plugin.video.freeview.sk/?provider=ct&channel=ctsport
+#EXTINF:0 tvg-id="344812096" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctsport.png" tvg-name="ČT Sport",ČT Sport
+plugin://plugin.video.freeview.sk/?provider=ct&channel=ctsport
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctsportplus.png" tvg-name="ČT Sport Plus",ČT Sport Plus
+plugin://plugin.video.freeview.sk/?provider=ct&channel=ctsportplus
 #EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctdart.png" tvg-name="ČT :D/art",ČT :D/art
 plugin://plugin.video.freeview.sk/?provider=ct&channel=ctdart
 #EXTINF:0 tvg-id="344805248" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ctd.png" tvg-name="ČT :D",ČT :D
@@ -101,6 +103,8 @@ plugin://plugin.video.freeview.sk/?provider=ocko&channel=expres
 plugin://plugin.video.freeview.sk/?provider=ocko&channel=star
 #EXTINF:0 tvg-id="343938944" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/retro.png" tvg-name="Retro Music",Retro Music
 plugin://plugin.video.freeview.sk/?provider=retro&channel=retro
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ltv.png" tvg-name="Lounge TV",Lounge TV
+plugin://plugin.video.freeview.sk/?provider=lounge&channel=lounge
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/fashion.png" tvg-name="Fashion TV",Fashion TV
 plugin://plugin.video.freeview.sk/?provider=fashion&channel=fashion
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nasa.png" tvg-name="Nasa TV 1 - Public",Nasa TV 1 - Public
