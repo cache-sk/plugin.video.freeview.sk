@@ -142,7 +142,7 @@ def generate_plot(epg, now, chtitle, items_left = 3):
         if 'start' in program and program['start']:
             start = datetime.datetime.utcfromtimestamp(program['start'])
         else:
-            start = program['dtstart']
+            start = program['dtstart'].astimezone(tzlocal())
         
         show_item = False
         if 'duration' in program and program['duration']:
