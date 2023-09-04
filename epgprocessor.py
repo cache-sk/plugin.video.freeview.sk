@@ -140,6 +140,7 @@ def generate_plot(epg, now, chtitle, items_left = 3):
 
     plot = u''
     nowutc = now.replace(tzinfo=tzlocal())
+    tomorrowutc = nowutc + datetime.timedelta(days=1)
     for program in epg:
         start = now
         if 'start' in program and program['start']:
@@ -151,7 +152,7 @@ def generate_plot(epg, now, chtitle, items_left = 3):
         if 'duration' in program and program['duration']:
             show_item = start + datetime.timedelta(minutes=program['duration']) > nowutc
         else:
-            show_item = program['dtend'] > nowutc and len(plot) == 0
+            show_item = program['dtend'] > nowutc and len(plot) == 0 and program['dtstart'] < tomorrowutc
         
         if show_item:
             plot += get_plot_line(start, program['title'] if 'title' in program else chtitle)
