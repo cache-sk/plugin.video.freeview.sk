@@ -32,7 +32,7 @@ plugin://plugin.video.freeview.sk/?provider=joj&channel=joj24
 #EXTINF:0 tvg-id="344806784" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojcinema.png" tvg-name="JOJ Cinema",JOJ Cinema
 plugin://plugin.video.freeview.sk/?provider=joj&channel=jojcinema
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/jojsvet.png" tvg-name="JOJ Svet",JOJ Svet
-plugin://plugin.video.freeview.sk/?provider=joj&channel=jojsvet
+#plugin://plugin.video.freeview.sk/?provider=joj&channel=jojsvet
 #EXTINF:0 tvg-id="344806848" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/csfilm.png" tvg-name="CS Film",CS Film
 plugin://plugin.video.freeview.sk/?provider=joj&channel=csfilm
 #EXTINF:0 tvg-id="344841792" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/cshistory.png" tvg-name="CS History",CS History

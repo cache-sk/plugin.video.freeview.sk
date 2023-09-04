@@ -119,9 +119,12 @@ def get_epg(channels, from_date, days=7, recalculate=True):
         
     if len(providers) > 0:
         for provider in providers:
-            module = import_module(provider)
-            provider_epg = module.get_epg(from_date, to_date)
-            result.update(provider_epg)
+            try:
+                module = import_module(provider)
+                provider_epg = module.get_epg(from_date, to_date)
+                result.update(provider_epg)
+            except:
+                pass
 
     return result
 

@@ -3,6 +3,8 @@
 # Created on: 23.8.2023
 # License: AGPL v.3 https://www.gnu.org/licenses/agpl-3.0.html
 
+import os
+import sys
 import xbmc
 import xbmcgui
 import xbmcplugin
@@ -23,6 +25,10 @@ BASE = 'https://loungetv.cz/ltv-play'
 
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','referer':'https://loungetv.cz','origin':'https://loungetv.cz'}
 
+PROTOCOL = 'mpd'
+
+DRM = 'com.widevine.alpha'
+
 def play(_handle, _addon, params):
     #check kodi version
     version = xbmc.getInfoLabel('System.BuildVersion')
@@ -35,8 +41,10 @@ def play(_handle, _addon, params):
 
     #check inputstream helper
     try:
-        xbmcaddon.Addon('script.module.inputstreamhelper')
-    except:
+        ish = xbmcaddon.Addon('script.module.inputstreamhelper')
+        sys.path.append(os.path.join(ish.getAddonInfo('path'),'lib'))
+        import inputstreamhelper
+    except Exception as ex:
         xbmcgui.Dialog().ok(_addon.getAddonInfo('name'),_addon.getLocalizedString(30302))
         xbmcplugin.setResolvedUrl(_handle, True, xbmcgui.ListItem())
         return
@@ -109,11 +117,15 @@ def play(_handle, _addon, params):
     data_drm['devices_hash'] = devices_hash
     data_drm['rawLicense'] = 'b{SSM}'
     drm_license = widevine + '|' + uheaders + '|' + json.dumps(data_drm) + '|JBrawLicense'
-
-    li = xbmcgui.ListItem(path=stream['response']['url']+'|'+uheaders)
-    li.setProperty('inputstream','inputstream.adaptive')
-    li.setProperty('inputstream.adaptive.stream_headers',uheaders)
-    li.setProperty('inputstream.adaptive.manifest_type','mpd')
-    li.setProperty('inputstream.adaptive.license_type','com.widevine.alpha')
-    li.setProperty('inputstream.adaptive.license_key',drm_license)
-    xbmcplugin.setResolvedUrl(_handle, True, li)
+    
+    is_helper = inputstreamhelper.Helper(PROTOCOL, drm=DRM)
+    if is_helper.check_inputstream():
+        li = xbmcgui.ListItem(path=stream['response']['url'])
+        li.setProperty('inputstream', is_helper.inputstream_addon)
+        #li.setProperty('inputstream','inputstream.adaptive')
+        li.setProperty('inputstream.adaptive.stream_headers', uheaders)
+        li.setProperty('inputstream.adaptive.manifest_headers', uheaders)
+        li.setProperty('inputstream.adaptive.manifest_type', PROTOCOL)
+        li.setProperty('inputstream.adaptive.license_type', DRM)
+        li.setProperty('inputstream.adaptive.license_key', drm_license)
+        xbmcplugin.setResolvedUrl(_handle, True, li)

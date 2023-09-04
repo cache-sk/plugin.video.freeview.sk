@@ -22,24 +22,13 @@ CHANNELS = {
     'plus':{'base':'https://plus.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
     'wau':{'base':'https://wau.joj.sk/live', 'iframe':'https://media.joj.sk/', 'fget':False},
     'family':{'base':'https://jojfamily.blesk.cz/live', 'iframe':'https://media.joj.sk/', 'fget':True},
-    'joj24':{'base':'https://joj24.noviny.sk/', 'iframe':'https://media.joj.sk/', 'fget':False}
-}
-
-JOJPLAY = { #mpd alt like https://st02-1.iptv.joj.sk/101-tv-pc.mpd
-    'CHANNELS':{
-        'joj':'101-tv-pc.m3u8',
-        'plus':'102-tv-pc.m3u8',
-        'wau':'103-tv-pc.m3u8',
-        'jojko':'104-tv-pc.m3u8',
-        'jojcinema':'105-tv-pc.m3u8',
-        'csfilm':'106-tv-pc.m3u8',
-        'cshistory':'107-tv-pc.m3u8',
-        'csmystery':'108-tv-pc.m3u8',
-        'jojsport':'110-tv-pc.m3u8',
-        'joj24':'111-tv-pc.m3u8',
-        'jojsvet':'114-tv-pc.m3u8'
-    },
-    'BASE': ['https://st01-1.iptv.joj.sk/','https://st02-1.iptv.joj.sk/','https://st03-1.iptv.joj.sk/']
+    'joj24':{'base':'https://joj24.noviny.sk/', 'iframe':'https://media.joj.sk/', 'fget':False},
+    'jojko':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'jojko.m3u8'},
+    'jojcinema':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'cinema.m3u8'},
+    'csfilm':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'cs_film.m3u8'},
+    'cshistory':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'cs_history.m3u8'},
+    'csmystery':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'cs_mystery.m3u8'},
+    'jojsport':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'joj_sport.m3u8'}
 }
 
 FGET = "http://p.xf.cz/fget.php?url="
@@ -94,29 +83,28 @@ def playFromPage(channel):
         matches = re.search('"hls": "(.*)"', content)
         hls = matches.group(1)
         
+        if 'replace' in channel and 'with' in channel:
+            hls = hls.replace(channel['replace'], channel['with'])
+        
         headers = {'Referer':channel['iframe'], 'Origin':channel['iframe']}
         headers.update(HEADERS)
 
     return {'hls':hls, 'headers':headers}
 
-def playJojPlay(channel):
-    return {'hls':random.choice(JOJPLAY["BASE"]) + channel,'headers':HEADERS}
-
 def play(_handle, _addon, params):
     channel = params['channel']
-    if not channel in CHANNELS and not channel in JOJPLAY['CHANNELS']:
+    if not channel in CHANNELS:
         raise #TODO
 
     prefer_jojplay = xbmcplugin.getSetting(_handle, 'prefer_jojplay') == 'true'
 
-    data = (
-        playJojPlay(JOJPLAY['CHANNELS'][channel]) if channel in JOJPLAY['CHANNELS'] and prefer_jojplay else 
-        playFromPage(CHANNELS[channel]) if channel in CHANNELS else 
-        playJojPlay(JOJPLAY['CHANNELS'][channel])
-    )
+    data = playFromPage(CHANNELS[channel])
     
-    li = xbmcgui.ListItem(path=data['hls']+'|'+urlencode(data['headers']))
+    uheaders = urlencode(data['headers'])
+    
+    li = xbmcgui.ListItem(path=data['hls']+'|'+uheaders)
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
+    li.setProperty('inputstream.adaptive.manifest_headers', uheaders)
     li.setProperty('inputstream.adaptive.manifest_type','hls')
     xbmcplugin.setResolvedUrl(_handle, True, li)
