@@ -14,6 +14,18 @@ try:
 except ImportError:
     from urllib.parse import urlencode
 
+# DH_KEY_TOO_SMALL on android fix by https://stackoverflow.com/questions/38015537/python-requests-exceptions-sslerror-dh-key-too-small#76217135
+try:
+    from urllib3.util import create_urllib3_context
+    from urllib3 import PoolManager
+    from requests.adapters import HTTPAdapter
+    class AddedCipherAdapter(HTTPAdapter):
+        def init_poolmanager(self, connections, maxsize, block=False):
+            ctx = create_urllib3_context(ciphers=":HIGH:!DH:!aNULL")
+            self.poolmanager = PoolManager(num_pools=connections,maxsize=maxsize,block=block,ssl_context=ctx)
+except:
+    pass
+
 # Detekciu obisiel HereIronman7746/ParrotDevelopers
 
 try: #kodi 19
@@ -46,17 +58,17 @@ except ImportError:  #kodi 18 fallback
 	    return str(ip)
 
 
-
+MEDIA_HOST = 'https://media.cms.nova.cz'
 CHANNELS = {
-    'nova':'https://media.cms.nova.cz/embed/nova-live?autoplay=1',
-    'novafun':'https://media.cms.nova.cz/embed/nova-fun-live?autoplay=1',
-    'novacinema':'https://media.cms.nova.cz/embed/nova-cinema-live?autoplay=1',
-    'novaaction':'https://media.cms.nova.cz/embed/nova-action-live?autoplay=1',
-    'novalady':'https://media.cms.nova.cz/embed/nova-lady-live?autoplay=1',
-    'novagold':'https://media.cms.nova.cz/embed/nova-gold-live?autoplay=1'
+    'nova':MEDIA_HOST+'/embed/nova-live?autoplay=1',
+    'novafun':MEDIA_HOST+'/embed/nova-fun-live?autoplay=1',
+    'novacinema':MEDIA_HOST+'/embed/nova-cinema-live?autoplay=1',
+    'novaaction':MEDIA_HOST+'/embed/nova-action-live?autoplay=1',
+    'novalady':MEDIA_HOST+'/embed/nova-lady-live?autoplay=1',
+    'novagold':MEDIA_HOST+'/embed/nova-gold-live?autoplay=1'
 }
 
-HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','referer':'https://media.cms.nova.cz/'}
+HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','referer':MEDIA_HOST}
 
 def play(_handle, _addon, params):
     channel = params['channel']
@@ -66,6 +78,11 @@ def play(_handle, _addon, params):
     channel = CHANNELS[channel]
 
     session = requests.Session()
+    try:
+        # DH_KEY_TOO_SMALL on android fix
+        session.mount(MEDIA_HOST, AddedCipherAdapter())
+    except:
+        pass
     headers = {}
     headers.update(HEADERS)
     headers.update({'X-Forwarded-For':genip()})
