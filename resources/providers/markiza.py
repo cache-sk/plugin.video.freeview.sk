@@ -20,6 +20,10 @@ CHANNELS = {
     'dajto':"https://www.markiza.sk/live/2-dajto",
     'krimi':"https://www.markiza.sk/live/22-krimi"
 }
+MATCHER = {
+    'markiza':',"source":{"sources":\[{"src":"(.*)","type":"application/x-mpegurl"}\]},',
+    'default':'{"tracks":{"HLS":\[{"src":"(.*)","type":"application'
+}
 
 BASE = "https://www.markiza.sk/prihlasenie"
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
@@ -80,7 +84,8 @@ def play(_handle, _addon, params):
     except AttributeError:
         pass
         
-    matches = re.search('{"tracks":{"HLS":\[{"src":"(.*)","type":"application', content)
+    final_matcher = MATCHER[channel] if channel in MATCHER else MATCHER['default']
+    matches = re.search(final_matcher, content)
     hls = matches.group(1)
     hls = hls.replace('\/','/')
     headers.update({'Referer':iframe})
