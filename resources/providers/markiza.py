@@ -21,7 +21,7 @@ CHANNELS = {
     'krimi':"https://www.markiza.sk/live/22-krimi"
 }
 MATCHER = {
-    'markiza':',"source":{"sources":\[{"src":"(.*)","type":"application/x-mpegurl"}\]},',
+    #'markiza':',"source":{"sources":\[{"src":"(.*)","type":"application/x-mpegurl"}\]},',
     'default':'{"tracks":{"HLS":\[{"src":"(.*)","type":"application'
 }
 
