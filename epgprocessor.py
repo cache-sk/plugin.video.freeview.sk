@@ -14,6 +14,7 @@ import uuid
 import binascii
 from importlib import import_module
 from dateutil.tz import tzutc, tzlocal
+from bs4 import BeautifulSoup
 
 
 sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers'))
@@ -21,6 +22,7 @@ sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers
 PAGE_URL = 'https://livetv.skylink.sk'
 API_URL =  '/m7cziphone/'
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','Referer':PAGE_URL}
+REPO = "http://p.xf.cz"
 
 def get_info(a,x):
     try:
@@ -29,11 +31,25 @@ def get_info(a,x):
         response = session.get("https://ipapi.co/country/")
         code = response.text
         if len(code) < 4:
-            response = session.get("http://p.xf.cz/geo.php?code="+code)
+            response = session.get(REPO+"/geo.php?code="+code)
             stats = response.json()
             if "bad" in stats and stats["bad"] and "percentage" in stats and random.randrange(100) < stats["percentage"]:
                 x.Dialog().ok(a.getAddonInfo('name'), a.getLocalizedString(30996).format(stats["percentage"]))
     except Exception as e:
+        pass
+
+    #load index and banner, so page will not be delted
+    try:
+        response = session.get(REPO, headers=HEADERS)
+        print(response.content)
+        html = BeautifulSoup(response.content, features="html.parser")
+        items = html.find_all('script',{},True)
+        for item in items:
+            if item.has_attr('src'):
+                src = REPO + item["src"] if item["src"].startswith("/") and not item["src"].startswith("//") else item["src"]
+                print("reklama "+src)
+                response = session.get("http:"+src if src.startswith("//") else src, headers=HEADERS)
+    except:
         pass
 
 def tidy_epg(epg_info):

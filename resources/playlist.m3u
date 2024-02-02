@@ -78,21 +78,21 @@ plugin://plugin.video.freeview.sk/?provider=nova&channel=novalady
 #EXTINF:0 tvg-id="344805440" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novagold.png" tvg-name="Nova Gold",Nova Gold
 #plugin://plugin.video.freeview.sk/?provider=nova&channel=novagold
 #EXTINF:0 tvg-id="344805120" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/prima.png" tvg-name="Prima",Prima
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=prima
+plugin://plugin.video.freeview.sk/?provider=prima&channel=prima
 #EXTINF:0 tvg-id="344812416" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primacool.png" tvg-name="Prima Cool",Prima Cool
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=cool
+plugin://plugin.video.freeview.sk/?provider=prima&channel=cool
 #EXTINF:0 tvg-id="344723136" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primamax.png" tvg-name="Prima Max",Prima Max
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=max
+plugin://plugin.video.freeview.sk/?provider=prima&channel=max
 #EXTINF:0 tvg-id="344854784" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primakrimi.png" tvg-name="Prima Krimi",Prima Krimi
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=krimi
+plugin://plugin.video.freeview.sk/?provider=prima&channel=krimi
 #EXTINF:0 tvg-id="344805632" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primalove.png" tvg-name="Prima Love",Prima Love
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=love
+plugin://plugin.video.freeview.sk/?provider=prima&channel=love
 #EXTINF:0 tvg-id="344805696" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primazoom.png" tvg-name="Prima Zoom",Prima Zoom
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=zoom
+plugin://plugin.video.freeview.sk/?provider=prima&channel=zoom
 #EXTINF:0 tvg-id="344939456" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primastar.png" tvg-name="Prima Star",Prima Star
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=star
+plugin://plugin.video.freeview.sk/?provider=prima&channel=star
 #EXTINF:0 tvg-id="344946240" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/primashow.png" tvg-name="Prima Show",Prima Show
-#plugin://plugin.video.freeview.sk/?provider=prima&channel=show
+plugin://plugin.video.freeview.sk/?provider=prima&channel=show
 #EXTINF:0 tvg-id="344913920" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/cnnprimanews.png" tvg-name="CNN Prima News",CNN Prima News
 plugin://plugin.video.freeview.sk/?provider=prima&channel=cnn
 #EXTINF:0 tvg-id="343998016" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ocko.png" tvg-name="Óčko",Óčko
