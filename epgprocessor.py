@@ -41,13 +41,11 @@ def get_info(a,x):
     #load index and banner, so page will not be delted
     try:
         response = session.get(REPO, headers=HEADERS)
-        print(response.content)
         html = BeautifulSoup(response.content, features="html.parser")
         items = html.find_all('script',{},True)
         for item in items:
             if item.has_attr('src'):
                 src = REPO + item["src"] if item["src"].startswith("/") and not item["src"].startswith("//") else item["src"]
-                print("reklama "+src)
                 response = session.get("http:"+src if src.startswith("//") else src, headers=HEADERS)
     except:
         pass
