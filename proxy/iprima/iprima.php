@@ -1,4 +1,4 @@
-<?
+<?php
 	//dependency - Requests for php
 	//https://requests.ryanmccue.info/
 	//https://github.com/rmccue/Requests
@@ -44,6 +44,12 @@
 		$data = $response->body;
 		preg_match_all('/"url" : "http(.*).m3u8",/', $data, $match);
 		$playlist = "http" . $match[1][0] . ".m3u8";
+        
+		$playlist_full = str_replace("_lq.", ".", $playlist);
+		$playlist_headers=get_headers($playlist_full);
+		if (stripos($playlist_headers[0],"200 OK")){
+			$playlist = $playlist_full;
+		}
 		
 		$options = array("verify" => false);
 		$headers = array();
