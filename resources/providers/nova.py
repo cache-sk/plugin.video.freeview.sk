@@ -65,10 +65,12 @@ CHANNELS = {
     'novacinema':MEDIA_HOST+'/embed/nova-cinema-live?autoplay=1',
     'novaaction':MEDIA_HOST+'/embed/nova-action-live?autoplay=1',
     'novalady':MEDIA_HOST+'/embed/nova-lady-live?autoplay=1',
-    'novagold':MEDIA_HOST+'/embed/nova-gold-live?autoplay=1'
+    'novagold':MEDIA_HOST+'/embed/nova-gold-live?autoplay=1',
+    'novasport1':MEDIA_HOST+'/embed/nova-sport-1-live?autoplay=any',
+    'novasport2':MEDIA_HOST+'/embed/nova-sport-2-live?autoplay=any'
 }
 
-HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','referer':MEDIA_HOST}
+HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','referer':MEDIA_HOST, 'origin':MEDIA_HOST}
 
 def play(_handle, _addon, params):
     channel = params['channel']
@@ -101,5 +103,6 @@ def play(_handle, _addon, params):
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.stream_headers',uheaders)
+    li.setProperty('inputstream.adaptive.manifest_headers',uheaders)
     li.setProperty('inputstream.adaptive.manifest_type','hls')
     xbmcplugin.setResolvedUrl(_handle, True, li)

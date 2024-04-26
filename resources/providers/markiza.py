@@ -21,11 +21,14 @@ CHANNELS = {
     'krimi':"https://www.markiza.sk/live/22-krimi"
 }
 MATCHER = {
+    #"source":{"sources":[{"src":"https://cmesk-ott-live-avod-sec.ssl.cdn.cra.cz/8o_qlthSGfa34Xhb4-m3dg==,1713964109/channels/cme-sk-markiza_avod/playlist/slo.m3u8","type":"application/x-mpegurl"}]}
     #'markiza':',"source":{"sources":\[{"src":"(.*)","type":"application/x-mpegurl"}\]},',
-    'default':'{"tracks":{"HLS":\[{"src":"(.*)","type":"application'
+    #'default':'{"tracks":{"HLS":\[{"src":"(.*)","type":"application'
+    'default':',"source":{"sources":\[{"src":"([^"]+)","type":"application/x-mpegurl"}\]},'
 }
 
 BASE = "https://www.markiza.sk/prihlasenie"
+ORIGIN = "https://media.cms.markiza.sk/"
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 
 def brexit(_addon, _handle, word):
@@ -68,7 +71,7 @@ def play(_handle, _addon, params):
     response = session.get(CHANNELS[channel], headers=headers)
     content = response.text
     
-    matches = re.search('<iframe data-src="(.+)".+allowfullscreen.+></iframe>', content)
+    matches = re.search('<iframe data-src="([^"]+)".+allowfullscreen.+></iframe>', content)
     if bool(matches):
         iframe = matches.group(1)
     else:
@@ -87,8 +90,9 @@ def play(_handle, _addon, params):
     final_matcher = MATCHER[channel] if channel in MATCHER else MATCHER['default']
     matches = re.search(final_matcher, content)
     hls = matches.group(1)
-    hls = hls.replace('\/','/')
-    headers.update({'Referer':iframe})
+    #hls = hls.replace('\/','/')
+    headers.update({'Referer':ORIGIN, 'Origin':ORIGIN})
+
 
     #note - adaptive nejde, lebo neposiela headre
     uheaders = urlencode(headers)
@@ -96,5 +100,6 @@ def play(_handle, _addon, params):
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
     li.setProperty('inputstream.adaptive.stream_headers',uheaders)
+    li.setProperty('inputstream.adaptive.manifest_headers',uheaders)
     li.setProperty('inputstream.adaptive.manifest_type','hls')
     xbmcplugin.setResolvedUrl(_handle, True, li)

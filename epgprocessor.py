@@ -23,6 +23,7 @@ PAGE_URL = 'https://livetv.skylink.sk'
 API_URL =  '/m7cziphone/'
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','Referer':PAGE_URL}
 REPO = "http://p.xf.cz"
+REPO2 = "http://p.6f.sk"
 
 def get_info(a,x):
     try:
@@ -40,6 +41,7 @@ def get_info(a,x):
 
     #load index and banner, so page will not be delted
     try:
+        response = session.get(REPO2, headers=HEADERS)
         response = session.get(REPO, headers=HEADERS)
         html = BeautifulSoup(response.content, features="html.parser")
         items = html.find_all('script',{},True)

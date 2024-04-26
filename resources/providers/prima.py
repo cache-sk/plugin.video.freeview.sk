@@ -13,7 +13,7 @@ try:
 except ImportError:
     from urllib.parse import urlencode
 
-PROXY_BASE = "https://p.6f.sk" #TODO - to settings?
+PROXY_BASE = "http://p.6f.sk" #TODO - to settings?
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
 CHANNELS = ['prima','love','krimi','max','cool','zoom','star','show']
 
