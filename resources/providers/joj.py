@@ -31,6 +31,19 @@ CHANNELS = {
     'jojsport':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'joj_sport.m3u8'}
 }
 
+IIHF = {
+    'plus':'https://iihf.worker.tivio.studio/?channelName=sport1',
+    'jojsport':'https://iihf.worker.tivio.studio/?channelName=sport2',
+}
+
+IIHF_HEADERS={
+    'accept':'application/json',
+    'content-type':'application/json',
+    'origin':'https://plus.joj.sk',
+    'referer':'https://plus.joj.sk/',
+    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+}
+
 FGET = "http://p.xf.cz/fget.php?url="
 
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
@@ -40,7 +53,20 @@ def brexit(_addon, _handle, word):
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
     return False
 
-def playFromPage(channel):
+def playFromPage(_handle, _addon, channel):
+    #try iihf
+    if channel in IIHF:
+        try:
+            iihf = IIHF[channel]
+            session = requests.Session()
+            response = session.get(iihf, headers=IIHF_HEADERS)
+            data = response.json()
+            if 'sourceUrl' in data:
+                return {'url':data['sourceUrl'], 'manifest':'mpd', 'headers':IIHF_HEADERS}
+        except: 
+            pass
+    
+    channel = CHANNELS[channel]
     if "direct" in channel:
         hls = channel["direct"]
         headers = HEADERS
@@ -89,22 +115,21 @@ def playFromPage(channel):
         headers = {'Referer':channel['iframe'], 'Origin':channel['iframe']}
         headers.update(HEADERS)
 
-    return {'hls':hls, 'headers':headers}
+    return {'url':hls, 'manifest':'hls', 'headers':headers}
 
 def play(_handle, _addon, params):
     channel = params['channel']
     if not channel in CHANNELS:
         raise #TODO
 
-    prefer_jojplay = xbmcplugin.getSetting(_handle, 'prefer_jojplay') == 'true'
-
-    data = playFromPage(CHANNELS[channel])
+    data = playFromPage(_handle, _addon, channel)
     
     uheaders = urlencode(data['headers'])
     
-    li = xbmcgui.ListItem(path=data['hls']+'|'+uheaders)
+    li = xbmcgui.ListItem(path=data['url']+'|'+uheaders)
     li.setProperty('inputstreamaddon','inputstream.adaptive') #kodi 18
     li.setProperty('inputstream','inputstream.adaptive') #kodi 19
+    li.setProperty('inputstream.adaptive.stream_headers', uheaders)
     li.setProperty('inputstream.adaptive.manifest_headers', uheaders)
-    li.setProperty('inputstream.adaptive.manifest_type','hls')
+    li.setProperty('inputstream.adaptive.manifest_type',data['manifest'])
     xbmcplugin.setResolvedUrl(_handle, True, li)
