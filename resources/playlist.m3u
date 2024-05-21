@@ -15,6 +15,10 @@ plugin://plugin.video.freeview.sk/?provider=rtvs&channel=online
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=rtvs
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nrsr.png" tvg-name="Live NRSR",Live NRSR
 plugin://plugin.video.freeview.sk/?provider=rtvs&channel=nrsr
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/iihf.png" tvg-name="JOJ IIHF 1",JOJ IIHF 1
+plugin://plugin.video.freeview.sk/?provider=joj&channel=iihf1
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/iihf.png" tvg-name="JOJ IIHF 2",JOJ IIHF 2
+plugin://plugin.video.freeview.sk/?provider=joj&channel=iihf2
 #EXTINF:0 tvg-id="2458735680" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/joj.png" tvg-name="JOJ",JOJ
 plugin://plugin.video.freeview.sk/?provider=joj&channel=joj
 #EXTINF:0 tvg-id="2458735744" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/plus.png" tvg-name="JOJ Plus",JOJ Plus
