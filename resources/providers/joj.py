@@ -28,22 +28,10 @@ CHANNELS = {
     'csfilm':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'cs_film.m3u8'},
     'cshistory':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'cs_history.m3u8'},
     'csmystery':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'cs_mystery.m3u8'},
-    'jojsport':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'joj_sport.m3u8'},
-    'iihf1':{'iihf':'https://iihf.worker.tivio.studio/?channelName=sport1'},
-    'iihf2':{'iihf':'https://iihf.worker.tivio.studio/?channelName=sport2'}
+    'jojsport':{'base':'https://live.joj.sk', 'iframe':'https://media.joj.sk/', 'fget':False, 'replace':'joj.m3u8','with':'joj_sport.m3u8'}
 }
 
 FALLBACK = "https://live.cdn.joj.sk/live/%%?loc=SK&exp=1716281798&hash=9d0862c9645f8f9ffd8736a3e732735333d1b1b665c1a9bf3db84bc8b10c0038"
-
-IIHF = 'https://iihf.worker.tivio.studio/?channelName='
-
-IIHF_HEADERS={
-    'accept':'application/json',
-    'content-type':'application/json',
-    'origin':'https://plus.joj.sk',
-    'referer':'https://plus.joj.sk/',
-    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
-}
 
 FGET = "http://p.xf.cz/fget.php?url="
 
@@ -54,37 +42,12 @@ def brexit(_addon, _handle, word):
     xbmcplugin.setResolvedUrl(_handle, False, xbmcgui.ListItem())
     return False
 
-def getIIHF(uri):
-    session = requests.Session()
-    response = session.get(uri, headers=IIHF_HEADERS)
-    data = response.json()
-    if 'sourceUrl' in data:
-        return {'url':data['sourceUrl'], 'manifest':'mpd', 'headers':IIHF_HEADERS}
-    return None
-
-def findIIHF(html):
-    items = html.find_all('div',{"class": "tivio-iihf-player"},True)
-    if len(items) == 1:
-        print("freeview: joj - iihf found")
-        chName = items[0]['channelname']
-        return chName
-    return None
-
 def playFromPage(_handle, _addon, channel):
     jojsport = channel == 'jojsport'
     channel = CHANNELS[channel]
     if "direct" in channel:
         hls = channel["direct"]
         headers = HEADERS
-    elif 'iihf' in channel:
-        try:
-            iihf = getIIHF(channel['iihf'])
-            if iihf is not None:
-                return iihf
-            else:
-                return brexit(_addon, _handle, 'iihf')
-        except:
-            return brexit(_addon, _handle, 'iihf')
     else:
         session = requests.Session()
         if channel['fget']:
@@ -92,42 +55,6 @@ def playFromPage(_handle, _addon, channel):
             session.verify = False
         headers = {}
         headers.update(HEADERS)
-        if jojsport:
-            #another temporary iihf hack
-            chsport = None
-            response = session.get(CHANNELS['joj']['base'], headers=headers)
-            html = BeautifulSoup(response.content, features="html.parser")
-            joj = findIIHF(html)
-            print("freeview: jojsport - joj is "+str(joj))
-            response = session.get(CHANNELS['plus']['base'], headers=headers)
-            html = BeautifulSoup(response.content, features="html.parser")
-            plus = findIIHF(html)
-            print("freeview: jojsport - plus is "+str(plus))
-            if joj is None and plus is None:
-                # cant detect joj sport, can be sport1 or sport2, use default process
-                pass
-            elif joj is None:
-                if plus == 'sport1':
-                    chsport = 'sport2'
-                elif plus == 'sport2':
-                    chsport = 'sport1'
-            elif plus is None:
-                if joj == 'sport1':
-                    chsport = 'sport2'
-                elif joj == 'sport2':
-                    chsport = 'sport1'
-            else:
-                # both sport used, use default process
-                pass
-            print("freeview: jojsport - should be "+str(chsport))
-            if chsport is not None:
-                try:
-                    iihf = getIIHF(IIHF+chsport)
-                    if iihf is not None:
-                        return iihf
-                except: 
-                    pass
-
         response = session.get(channel['base'], headers=headers)
         html = BeautifulSoup(response.content, features="html.parser")
         

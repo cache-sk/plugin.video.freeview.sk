@@ -24,7 +24,7 @@ MATCHER = {
     #"source":{"sources":[{"src":"https://cmesk-ott-live-avod-sec.ssl.cdn.cra.cz/8o_qlthSGfa34Xhb4-m3dg==,1713964109/channels/cme-sk-markiza_avod/playlist/slo.m3u8","type":"application/x-mpegurl"}]}
     #'markiza':',"source":{"sources":\[{"src":"(.*)","type":"application/x-mpegurl"}\]},',
     #'default':'{"tracks":{"HLS":\[{"src":"(.*)","type":"application'
-    'default':',"source":{"sources":\[{"src":"([^"]+)","type":"application/x-mpegurl"}\]},'
+    'default':',"source":{"sources":\[{"src":"([^"]+)","type":"application/x-mpegurl"}\],'
 }
 
 BASE = "https://www.markiza.sk/prihlasenie"
