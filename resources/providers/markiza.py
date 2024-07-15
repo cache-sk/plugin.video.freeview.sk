@@ -18,7 +18,8 @@ CHANNELS = {
     'markiza':"https://www.markiza.sk/live/1-markiza",
     'doma':"https://www.markiza.sk/live/3-doma",
     'dajto':"https://www.markiza.sk/live/2-dajto",
-    'krimi':"https://www.markiza.sk/live/22-krimi"
+    'krimi':"https://www.markiza.sk/live/22-krimi",
+    'klasik':"https://www.markiza.sk/live/44-klasik"
 }
 MATCHER = {
     #"source":{"sources":[{"src":"https://cmesk-ott-live-avod-sec.ssl.cdn.cra.cz/8o_qlthSGfa34Xhb4-m3dg==,1713964109/channels/cme-sk-markiza_avod/playlist/slo.m3u8","type":"application/x-mpegurl"}]}

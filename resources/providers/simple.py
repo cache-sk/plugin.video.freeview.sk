@@ -5,7 +5,6 @@
 
 import xbmcgui
 import xbmcplugin
-import requests.cookies
 
 try:
     from urllib import urlencode
@@ -14,7 +13,9 @@ except ImportError:
 
 
 CHANNELS = {
-    'fashion':'http://lb.streaming.sk/fashiontv/stream/playlist.m3u8'
+    'fashion':'http://lb.streaming.sk/fashiontv/stream/playlist.m3u8',
+    'doktor':'https://live.tvdoktor.sk/high/index.m3u8',
+    'szts':'https://dash2.antik.sk/live/tanecnesutaze/index.m3u8'
 }
 
 HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','referer':'http://live.streaming.sk/'}

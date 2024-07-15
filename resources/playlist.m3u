@@ -47,6 +47,8 @@ plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
 #EXTINF:0 tvg-id="2458879488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/krimi.png" tvg-name="Krimi",Krimi
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=krimi
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/klasik.png" tvg-name="Klasik",Klasik
+plugin://plugin.video.freeview.sk/?provider=markiza&channel=klasik
 #EXTINF:0 tvg-id="2457865600" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ta3.png" tvg-name="TA3",TA3
 plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
 #EXTINF:0 tvg-id="344804928" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ct1.png" tvg-name="ČT1",ČT1
@@ -70,7 +72,7 @@ plugin://plugin.video.freeview.sk/?provider=ct&channel=ctdart
 #EXTINF:0 tvg-id="344805504" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novafun.png" tvg-name="Nova Fun",Nova Fun
 #plugin://plugin.video.freeview.sk/?provider=nova&channel=novafun
 #EXTINF:0 tvg-id="344805312" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novacinema.png" tvg-name="Nova Cinema",Nova Cinema
-#plugin://plugin.video.freeview.sk/?provider=nova&channel=novacinema
+plugin://plugin.video.freeview.sk/?provider=nova&channel=novacinema
 #EXTINF:0 tvg-id="344805376" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novaaction.png" tvg-name="Nova Action",Nova Action
 #plugin://plugin.video.freeview.sk/?provider=nova&channel=novaaction
 #EXTINF:0 tvg-id="344962176" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/novalady.png" tvg-name="Nova Lady",Nova Lady
@@ -110,9 +112,12 @@ plugin://plugin.video.freeview.sk/?provider=ocko&channel=star
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ltv.png" tvg-name="Lounge TV",Lounge TV
 #plugin://plugin.video.freeview.sk/?provider=lounge&channel=lounge
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/fashion.png" tvg-name="Fashion TV",Fashion TV
-plugin://plugin.video.freeview.sk/?provider=fashion&channel=fashion
+plugin://plugin.video.freeview.sk/?provider=simple&channel=fashion
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/drtv.png" tvg-name="TV Doktor",TV Doktor
+plugin://plugin.video.freeview.sk/?provider=simple&channel=doktor
+#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/szts.png" tvg-name="SZTŠ",SZTŠ
+plugin://plugin.video.freeview.sk/?provider=simple&channel=szts
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nasa.png" tvg-name="Nasa TV 1 - Public",Nasa TV 1 - Public
 plugin://plugin.video.freeview.sk/?provider=nasa&channel=ntv1
 #EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/nasa.png" tvg-name="Nasa TV 2 - Media",Nasa TV 1 - Media
 plugin://plugin.video.freeview.sk/?provider=nasa&channel=ntv2
-#EXT-X-ENDLIST
