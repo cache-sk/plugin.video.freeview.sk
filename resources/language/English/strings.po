@@ -71,6 +71,10 @@ msgctxt "#30094"
 msgid "Koľko dní generovať"
 msgstr "Koľko dní generovať"
 
+msgctxt "#30095"
+msgid "Zobrazovať program pri náhľade staníc cez doplnok"
+msgstr "Zobrazovať program pri náhľade staníc cez doplnok"
+
 msgctxt "#30100"
 msgid "Markíza"
 msgstr "Markíza"

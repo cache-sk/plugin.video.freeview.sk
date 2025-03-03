@@ -4,6 +4,7 @@
         <setting label="30091" type="bool" id="genepg" default="false"/>
         <setting label="30093" type="slider" id="gen_delay" default="12" range="12,12,120" option="int" enable="eq(-1,true)"/>
         <setting label="30094" type="slider" id="gen_days" default="7" range="1,1,7" option="int" enable="eq(-2,true)"/>
+        <setting label="30095" type="bool" id="genplot" default="false"/>
     </category>
     <category label="30100">
         <setting label="30101" type="lsep"/>

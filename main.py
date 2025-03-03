@@ -50,16 +50,21 @@ def get_url(**kwargs):
     return '{0}?{1}'.format(_url, urlencode(kwargs, 'utf-8'))
 
 def playlist():
+    show_plot = 'true' == _addon.getSetting('genplot')
     with io.open(translatePath(PLAYLIST), 'r', encoding='utf8') as file:
         m3u_data = file.read()
         file.close()    
     channels = m3u.process(m3u_data)
-    now = datetime.datetime.now()
-    epg = epgprocessor.get_epg(channels, now, 1, False)
+    if show_plot:
+        now = datetime.datetime.now()
+        epg = epgprocessor.get_epg(channels, now, 1, False)
     for channel in channels:
-        plot = epgprocessor.generate_plot(epg[channel['id']], now, channel['name'], 4) if u'0' != channel['id'] and epg and channel['id'] in epg else u''
         list_item = xbmcgui.ListItem(label=channel['name'])
-        list_item.setInfo('video', {'title': channel['name'], 'plot': plot})
+        if show_plot:
+            plot = epgprocessor.generate_plot(epg[channel['id']], now, channel['name'], 4) if u'0' != channel['id'] and epg and channel['id'] in epg else u''
+            list_item.setInfo('video', {'title': channel['name'], 'plot': plot})
+        else:
+            list_item.setInfo('video', {'title': channel['name']})
         list_item.setArt({'icon': channel['logo']})
         list_item.setProperty('IsPlayable', 'true')
         xbmcplugin.addDirectoryItem(_handle, channel['url'], list_item, False)
