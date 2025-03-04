@@ -47,7 +47,7 @@ plugin://plugin.video.freeview.sk/?provider=markiza&channel=doma
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=dajto
 #EXTINF:0 tvg-id="2458879488" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/krimi.png" tvg-name="Krimi",Krimi
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=krimi
-#EXTINF:0 tvg-id="0" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/klasik.png" tvg-name="Klasik",Klasik
+#EXTINF:0 tvg-id="2458903616" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/klasik.png" tvg-name="Klasik",Klasik
 plugin://plugin.video.freeview.sk/?provider=markiza&channel=klasik
 #EXTINF:0 tvg-id="2457865600" tvg-logo="special://home/addons/plugin.video.freeview.sk/resources/logos/ta3.png" tvg-name="TA3",TA3
 plugin://plugin.video.freeview.sk/?provider=ta3&channel=ta3
