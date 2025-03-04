@@ -19,9 +19,9 @@ from bs4 import BeautifulSoup
 
 sys.path.append(os.path.join (os.path.dirname(__file__), 'resources', 'providers'))
 
-PAGE_URL = 'https://livetv.skylink.sk'
+PAGE_URL = 'https://m7cz.solocoo.tv'
 API_URL =  '/m7cziphone/'
-HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36','Referer':PAGE_URL}
+HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36','Referer':PAGE_URL}
 REPO = "http://p.xf.cz"
 REPO2 = "http://p.6f.sk"
 
